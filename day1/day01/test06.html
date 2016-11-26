@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>boolean</title>
+</head>
+<body>
+
+<script>
+    var a = true, b = false;
+
+    var c = 0;
+    console.log(Boolean(c));
+
+    var s = "";
+    console.log(Boolean(s));
+
+    var n1 = null;
+    console.log(Boolean(n1));
+
+    var n2 = undefined;
+    console.log(Boolean(n2));
+
+    var t = "hello";
+    //隐式的转换
+    if (t) {
+        console.log("条件为真！");
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>typeof </title>
+</head>
+<body>
+
+<script>
+    var a = 10;
+    var b = "hello";
+    var c = true;//false
+    var e;
+
+    //typeof关键字用于测试变量类型
+    console.log(typeof a);//number
+    console.log(typeof b);//string
+    console.log(typeof c);//boolean
+    console.log(typeof e);//undefined
+
+    //对于根本就没有声明的变量使用typeof会得到undefined,只能进行typeof操作
+    console.log(typeof f);//undefined
+//    console.log(f);
+
+    var j = null;
+    console.log(typeof j);//
+
+
+</script>
+</body>
+</html>

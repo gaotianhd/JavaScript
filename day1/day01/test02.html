@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量的定义</title>
+</head>
+<body>
+
+<script>
+    var a, b;
+    a = 10;
+    b = "hello";
+    //alert(a);
+    //alert(b);
+    console.log(a,b);
+
+
+//  变量的作用域是有function决定的，和{}没关系
+    function test(){
+        var value = 10;
+        test = "global var ...";
+    }
+
+    console.log(test);
+//    console.log(value);
+</script>
+
+</body>
+</html>

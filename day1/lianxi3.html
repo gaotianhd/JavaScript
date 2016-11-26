@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小米</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .nav{
+      width: 490px;
+      height: 170px;
+      background: url("./image/lunbo/01.jpg");
+      margin: 100px auto;
+      position: relative;
+    }
+    ul{
+      list-style: none;
+      position: absolute;
+      left: 50%;
+      margin-left: -50px;
+      bottom: 0;
+    }
+    ul li{
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      float: left;
+      margin-left: 5px;
+      margin-right: 5px;
+      background: white;
+      text-align: center;
+      line-height: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li name="l1">1</li>
+      <li name="l1">2</li>
+      <li name="l1">3</li>
+      <li name="l1">4</li>
+      <li name="l1">5</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var nav = document.getElementsByClassName("nav");
+    var lists = document.getElementsByName("l1");
+    lists[0].onclick = function(){
+      nav[0].style.backgroundImage = "url(./image/lunbo/01.jpg)";
+    };
+    lists[1].onclick = function(){
+      nav[0].style.backgroundImage = "url(./image/lunbo/02.jpg)";
+    };
+    lists[2].onclick = function(){
+      nav[0].style.backgroundImage = "url(./image/lunbo/03.jpg)";
+    };
+    lists[3].onclick = function(){
+      nav[0].style.backgroundImage = "url(./image/lunbo/04.jpg)";
+    };
+    lists[4].onclick = function(){
+      nav[0].style.backgroundImage = "url(./image/lunbo/05.jpg)";
+    };
+  </script>
+</body>
+</html>

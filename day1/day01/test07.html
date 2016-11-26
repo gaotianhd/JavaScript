@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数值类型</title>
+</head>
+<body>
+
+<script>
+    //直接写8,16进制
+    var a = 123, b = 0123, c = 0x123;
+    console.log("a = " + a);
+    console.log("b = " + b);
+    console.log("c = " + c);
+
+    var f1 = 0.1, f2 = 0.2;
+    console.log(f1 + f2);//不等于0.3
+
+    console.log(Number.MIN_VALUE);//最小值, 无限接近0
+    console.log(Number.MAX_VALUE);//最大值, 都是正数
+
+    console.log(isFinite(2 * Number.MAX_VALUE));//false 越界
+    console.log(isFinite(Number.MAX_VALUE));//true 合法
+    console.log(isFinite(2 * (-Number.MAX_VALUE)));//false
+
+    //不会报错误
+    console.log(a / 0);//Infinity  该值为无限大
+    console.log(-a / 0);//-Infinity  该值为无限大
+
+
+    //NaN
+    console.log(typeof NaN);//类型为number，但是不是一个数
+
+    var n = NaN;
+    console.log(isNaN(n));//true
+    n = 10;
+    console.log(isNaN(n));//false
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>typeof </title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = 10;
+    var b = "hello";
+    var c = true;
+    var e;
+
+    //typeof 关键字用来测试变量类型
+    console.log(typeof a);//number
+    console.log(typeof b);//string
+    console.log(typeof c);//boolean
+    console.log(typeof e);//undefined
+
+    //对于根本就没有声明的变量使用typeof会得到undefined，只能进行typeof操作
+    console.log(typeof f);//undefined
+
+    var j = null;
+    console.log(typeof j);//对象类型
+  </script>
+</body>
+</html>

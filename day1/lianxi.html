@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jd</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    #div1{
+      width: 160px;
+      height: 170px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1"><img id="img1" src="./image/jd1.png" alt="" /></div>
+  <script type="text/javascript">
+    var img1 = document.getElementById("img1");
+    var div1 = document.getElementById("div1");
+    div1.onmouseover = function(){
+      img1.src = "./image/jd2.png";
+    };
+    div1.onmouseout = function(){
+      img1.src = "./image/jd1.png";
+    };
+  </script>
+</body>
+</html>

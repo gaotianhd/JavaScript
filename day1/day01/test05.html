@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>string类型</title>
+</head>
+<body>
+<script>
+   /* var a = "hello";
+    var b = 'hello';
+//    var c = "hello'; //不要混用单双引号
+
+    //字符串不可变，重新赋值的操作需要先销毁之前的字符串变量
+    a = "world";
+    */
+
+
+    var a = 10, b = "2", c = "string", f = true;
+    console.log(a - b); //8
+    console.log(a + b);//得到字符串“102”
+
+   //"+"进行字符串连接， “-”进行数学运算
+    console.log("11" + 5 - "1");//114
+
+   //toString()方法，将对象内容转换为字符串
+    console.log(a.toString());//"10"
+   console.log(a.toString(2));//"1010"
+   console.log(a.toString(8));//"12"
+   console.log(f.toString());
+
+
+    var n1 = null;
+    var n2 = undefined;
+    console.log(String(n1));
+    console.log(String(n2));
+    console.log(String(a));
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

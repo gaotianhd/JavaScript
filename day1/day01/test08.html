@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数值转换</title>
+</head>
+<body>
+
+<script>
+    var num1 = "hello";
+    var num2 = "123";//可以将16进制格式的字符串转化为数值, 但是八进制不可以
+    var num3 = "";
+    var num4 = true;
+    console.log("-----使用Number----------------");
+    console.log(Number(num1));//NaN
+    console.log(Number(num2));// 123
+    console.log(Number(num3));//0
+    console.log(Number(num4));//1
+    console.log(Number("1234blue"));
+
+    console.log("-----使用parseInt转换, 默认方式----------------");
+    //parseInt将字符串解析为整数
+    console.log(parseInt(""));//NaN
+    console.log(parseInt("123abc"));//123
+    console.log(parseInt("abc"));//NaN
+    console.log(parseInt("0x12"));//16进制可以支持
+    console.log(parseInt("070"));//70, 不直接支持8进制转换
+
+    console.log("-----使用parseInt转换, 指定转换进制----------------");
+    console.log(parseInt("010", 8));
+    console.log(parseInt("10", 2));
+    console.log(parseInt("20", 2));
+    console.log(parseInt("10", 10));
+    console.log(parseInt("0x10", 16));
+
+    console.log("-----使用parseFloat转换, 指定转换进制----------------");
+    console.log(parseFloat("10.234"));//10.234
+    console.log(parseFloat("10.23.4"));//10.23
+    console.log(parseFloat("0x123.234"));//0
+    console.log(parseFloat("023.234"));//23.234
+    console.log(parseFloat("abc"));//NaN
+    console.log(parseFloat("123.345abc"));//123.345
+
+
+
+</script>
+
+</body>
+</html>
