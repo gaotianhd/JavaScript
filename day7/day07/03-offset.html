@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .f {
+            width: 400px;
+            height: 400px;
+            border: 10px solid blue;
+            padding: 10px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .s {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="f" id="f-id">
+    <div class="s" id="s-id"></div>
+</div>
+
+<script>
+    var s = document.getElementById("s-id");
+    var f = document.getElementById("f-id");
+
+    //相对祖先元素中使用过定位的元素的左内边框的距离
+    console.log("s.offsetLeft", s.offsetLeft);
+
+    //相对祖先元素中使用过定位的元素的上内边框的距离
+    console.log("s.offsetTop", s.offsetTop);
+
+    //只能通过样式设置left,top, width,height
+    s.style.left = "20px";
+    s.style.top = "20px";
+
+    console.log("s.offsetLeft", s.offsetLeft);//单位都是px
+    console.log("s.offsetTop", s.offsetTop);
+
+    //offsetLeft, offsetTop， offsetWidth, offsetHeight 都是只读属性，不可以修改
+ /*   s.offsetLeft = 40;
+    s.offsetTop = 40;*/
+
+    console.log(s.offsetParent);//距离s最近的设置了定位的祖先元素
+
+</script>
+
+</body>
+<

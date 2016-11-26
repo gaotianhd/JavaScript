@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小米轮播图</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 1226px;
+      height: 460px;
+      position: relative;
+      margin: 100px auto;
+      /*border: 1px solid red;*/
+      overflow: hidden;
+    }
+    ul{
+      list-style: none;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    ul li{
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: gray;
+      float: left;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .pi{
+      width: 4904px;
+      position: absolute;
+    }
+    .pi img{
+      float: left;
+    }
+    .left{
+      width: 40px;
+      height: 70px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -35px;
+      background: transparent;
+      /*opacity: 0;*/
+      line-height: 70px;
+      text-align: center;
+      cursor: pointer;
+      color: #808080;
+      border-radius: 0 10px 10px 0;
+    }
+    .right{
+      width: 40px;
+      height: 70px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -35px;
+      background: transparent;
+      /*opacity: 0;*/
+      line-height: 70px;
+      text-align: center;
+      cursor: pointer;
+      color: #808080;
+      border-radius: 10px 0 0 10px;
+    }
+    @font-face {
+      font-family: "myfont"; /*自己指定的字体名称*/
+      src: url("./iconfont/iconfont.eot");
+      src: url('./iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('./iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+      url('./iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+      url('./iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+    }
+    .iconfont {
+      font-family: "myfont";
+      font-size: 40px;
+      font-style: normal;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box">
+    <div id="pi" class="pi">
+      <a href="#"><img src="./mi/1.jpg" alt="" /></a>
+      <a href="#"><img src="./mi/2.jpg" alt="" /></a>
+      <a href="#"><img src="./mi/3.jpg" alt="" /></a>
+      <a href="#"><img src="./mi/4.jpg" alt="" /></a>
+    </div>
+    <ul id="ul1"></ul>
+    <div id="left" class="left iconfont">&#xe693;</div>
+    <div id="right" class="right iconfont">&#xe612;</div>
+  </div>
+  <script type="text/javascript">
+    var box = document.getElementById('box');
+    var pi = document.getElementById('pi');
+    var ul1 = document.getElementById('ul1');
+    for(var i = 0;i <pi.children.length;i++){
+      var li = document.createElement('li');
+      ul1.appendChild(li);
+    }
+
+    var ulList = document.getElementById('ul1').children;
+
+
+    function move(obj,space){
+      var speed = space > obj.offsetLeft ? 30 : -30;
+      clearInterval(obj.timer);
+       obj.timer = setInterval(function(){
+        obj.style.left = obj.offsetLeft + speed + 'px';
+        var ret = space-obj.offsetLeft;
+        if(Math.abs(ret) <= 30){
+          obj.style.left = space+'px';
+          clearInterval(obj.timer);
+        }
+      },10);
+    }
+
+    ulList[0].style.backgroundColor = "white";
+
+    var timer = null;
+    var ul_num=0,li_num=0;
+
+    for(var i = 0; i < ulList.length; i++){
+      ulList[i].index = i;
+      ulList[i].onclick = function(){
+        for(var j = 0; j < ulList.length; j++){
+          ulList[j].style.backgroundColor = "gray";
+        }
+        this.style.backgroundColor = "white";
+        var space = (-1226*this.index);
+        move(pi,space);
+        ul_num = li_num = this.index;
+      };
+    }
+function second(){
+    timer = setInterval(play,1000);
+    function play(){
+      ul_num++;
+      if(ul_num > ulList.length - 1){
+        ul_num = 0;
+        pi.style.left = "0px";
+      }
+      move(pi, -ul_num * 1226);
+      li_num++;
+      if(li_num > ulList.length - 1){
+        li_num = 0;
+      }
+      for(var i = 0; i < ulList.length; i++){
+        ulList[i].style.backgroundColor = "gray";
+      }
+      ulList[li_num].style.backgroundColor = "white";
+    }
+    box.onmouseover = function () {
+       clearInterval(timer);
+    };
+    box.onmouseout = function () {
+        timer = setInterval(play, 1000);
+    };
+}
+
+second();
+
+function third(){
+    var left = document.getElementById('left');
+    var right = document.getElementById('right');
+    left.onclick = function(){
+      ul_num--;
+      if(ul_num < 0){
+        ul_num = ulList.length - 1;
+        pi.style.left = -ul_num * 1226 + 'px';
+      }
+      move(pi,-ul_num * 1226);
+      li_num--;
+      if(li_num < 0){
+        li_num = ulList.length - 1;
+      }
+      for(var i = 0; i < ulList.length; i++){
+        ulList[i].style.backgroundColor = "gray";
+      }
+        ulList[li_num].style.backgroundColor = "white";
+      };
+
+      left.onmouseover = function(){
+        left.style.opacity = 0.8;
+        left.style.color = "white";
+      };
+      left.onmouseout = function(){
+        left.style.opacity = 1;
+        left.style.color = "#808080";
+      };
+
+    right.onclick = function(){
+      ul_num++;
+      if(ul_num > ulList.length - 1){
+        ul_num = 0;
+        pi.style.left = "0px";
+      }
+      move(pi, -ul_num * 1226);
+      li_num++;
+      if(li_num > ulList.length - 1){
+        li_num = 0;
+      }
+      for(var i = 0; i < ulList.length; i++){
+        ulList[i].style.backgroundColor = "gray";
+      }
+      ulList[li_num].style.backgroundColor = "white";
+      };
+
+      right.onmouseover = function(){
+        right.style.opacity = 0.8;
+        right.style.color = "white";
+      };
+      right.onmouseout = function(){
+        right.style.opacity = 1;
+        right.style.color = "#808080";
+      };
+}
+
+third();
+
+  </script>
+</body>
+</html>

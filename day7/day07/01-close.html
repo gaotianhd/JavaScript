@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动关闭广告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            position: absolute;
+            top: 80px;
+        }
+
+        img:first-child {
+            left: 0;
+        }
+
+        img:nth-child(2) {
+            right: 0;
+        }
+
+        #p-id {
+            width: 500px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            margin: 50px auto;
+        }
+
+    </style>
+</head>
+<body>
+
+<img id="img-1" src="1.jpg" alt="">
+<img id="img-2" src="1.jpg" alt="">
+<p id="p-id"></p>
+
+<script>
+    var imgOne = document.getElementById("img-1");
+    var imgTwo = document.getElementById("img-2");
+    var p = document.getElementById("p-id");
+
+    var num = 5;
+    var timer = setInterval(fn, 1000);
+    function fn(){
+        num--;
+        if (num >= 0){
+            p.innerHTML = num + "s 之后关闭广告";
+        } else {
+            clearInterval(timer);
+            imgOne.style.display = "none";
+            imgTwo.style.display = "none";
+            p.style.display = "none";
+            return;
+        }
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>

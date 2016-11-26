@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,html {
+            height: 2000px;
+            width: 2000px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script src="scroll.js"></script>
+<script>
+
+    //window.scrollTo(x,y); x表示横向滚动的像素， y表示纵向滚动的像素
+    window.scrollTo(500,500);//滚动到一个指定位置
+    console.log(scroll().top);
+
+    //针对整个可视窗口拖动条事件
+    window.onscroll = function () {
+
+/*      console.log(scroll().top);
+        console.log(scroll().left);*/
+
+    };
+
+</script>
+</body>
+</html>

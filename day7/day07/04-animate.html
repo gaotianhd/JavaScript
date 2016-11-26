@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .f {
+            width: 1000px;
+            height: 300px;
+            border: 10px solid blue;
+            padding: 10px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .s {
+            width: 30px;
+            height: 30px;
+            padding: 10px;
+            border: 10px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn">点击移动</button>
+<div class="f" id="f-id">
+    <div class="s" id="s-id"></div>
+</div>
+
+<script>
+    var s = document.getElementById("s-id");
+    var f = document.getElementById("f-id");
+    var btn = document.getElementById("btn");
+
+    var timer = null;
+    btn.onclick = function () {
+//        s.style.left = "800px";
+
+        timer = setInterval(function(){
+            s.style.left = s.offsetLeft + 10 +　"px";
+            if (s.offsetLeft >= 800){
+                clearInterval(timer);
+            }
+        }, 10);
+    };
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scroll.js"></script>
+</head>
+<body>
+
+
+<script>
+
+    var current = 0; //此变量用于保存当前纵向拖动条的值
+
+    window.onscroll = function () {
+      current =  scroll().top;
+    };
+
+    //target参数表示的是当前的盒子距离父盒子顶部的距离，offsetTop
+    function move(target){
+        var timer = setInterval(function(){
+            var speed = (target - current ) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            current += speed;
+
+            //用于进行屏幕的滚动
+            window.scrollTo(0, current);
+
+            if ( target == current ) {
+                clearInterval(timer);
+            }
+        }, 30);
+    }
+
+</script>
+</body>
+</html>

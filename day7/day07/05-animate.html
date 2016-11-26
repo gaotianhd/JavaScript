@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+            top: 50px;
+            left: 0;
+
+        }
+
+        .box-1 {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            position: absolute;
+            top: 200px;
+            left: 0;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<button id="btn-1">200</button>
+<button id="btn-2">400</button>
+<div class="box" id="box-id"></div>
+<div class="box-1" id="box-1-id"></div>
+
+
+<script>
+    var btn1 = document.getElementById("btn-1");
+    var btn2 = document.getElementById("btn-2");
+    var box = document.getElementById("box-id");
+    var box1 = document.getElementById("box-1-id");
+
+     //匀速
+     function move(obj, target){
+         var speed = target > obj.offsetLeft ? 15: -15;
+         clearInterval(obj.timer);
+         obj.timer = setInterval(function(){
+             obj.style.left = obj.offsetLeft + speed + "px";
+
+             var ret = target - obj.offsetLeft;
+             if (Math.abs(ret) <= 15 ) {
+                 obj.style.left = target + "px";
+                 clearInterval(obj.timer);
+             }
+         }, 30);
+
+     }
+
+
+    // 速度有快到慢
+      function move_1(obj, target){
+        clearInterval(obj.timer);
+         obj.timer = setInterval(function(){
+             var speed = (target - obj.offsetLeft) / 10;
+             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+             obj.style.left = obj.offsetLeft + speed + "px";
+
+             var ret = target - obj.offsetLeft;
+             if ( speed == 0 ) {
+                 obj.style.left = target + "px";
+                 clearInterval(obj.timer);
+             }
+         }, 30);
+     }
+
+    //200
+    btn1.onclick = function () {
+        move_1(box, 200);
+        move_1(box1, 200);
+    };
+
+    //400
+    btn2.onclick = function () {
+        move_1(box, 800);
+        move_1(box1, 800);
+    };
+
+
+
+</script>
+</body>
+</html>

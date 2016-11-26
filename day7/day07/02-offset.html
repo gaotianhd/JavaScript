@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offset</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="box-id"></div>
+<script>
+    var d = document.getElementById("box-id");
+    console.log("d.offsetWidth = ", d.offsetWidth);
+    console.log("d.offsetHeight = ", d.offsetHeight);
+
+</script>
+
+</body>
+</html>

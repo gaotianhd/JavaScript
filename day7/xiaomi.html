@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小米轮播图</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 1226px;
+      height: 460px;
+      position: relative;
+      margin: 100px auto;
+      border: 1px solid red;
+      overflow: hidden;
+    }
+    ul{
+      list-style: none;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    ul li{
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: gray;
+      float: left;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .pi{
+      width: 4904px;
+      position: absolute;
+    }
+    .pi img{
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box">
+    <div id="pi" class="pi">
+      <a href="#"><img src="./mi/1.jpg" alt="" /></a>
+      <a href="#"><img src="./mi/2.jpg" alt="" /></a>
+      <a href="#"><img src="./mi/3.jpg" alt="" /></a>
+      <a href="#"><img src="./mi/4.jpg" alt="" /></a>
+    </div>
+    <ul id="ul1"></ul>
+  </div>
+  <script type="text/javascript">
+    var box = document.getElementById('box');
+    var pi = document.getElementById('pi');
+    var ul1 = document.getElementById('ul1');
+    for(var i = 0;i <pi.children.length;i++){
+      var li = document.createElement('li');
+      ul1.appendChild(li);
+    }
+
+    var ulList = document.getElementById('ul1').children;
+
+
+    function move(obj,space){
+      var speed = space > obj.offsetLeft ? 30 : -30;
+      clearInterval(obj.timer);
+       obj.timer = setInterval(function(){
+        obj.style.left = obj.offsetLeft + speed + 'px';
+        var ret = space-obj.offsetLeft;
+        if(Math.abs(ret) <= 30){
+          obj.style.left = space+'px';
+          clearInterval(obj.timer);
+        }
+      },10);
+    }
+
+    ulList[0].style.backgroundColor = "white";
+
+    var timer = null;
+    var ul_num=0,li_num=0;
+
+    for(var i = 0; i < ulList.length; i++){
+      ulList[i].index = i;
+      ulList[i].onclick = function(){
+        for(var j = 0; j < ulList.length; j++){
+          ulList[j].style.backgroundColor = "gray";
+        }
+        this.style.backgroundColor = "white";
+        var space = (-1226*this.index);
+        move(pi,space);
+        ul_num = li_num = this.index;
+      };
+    }
+
+    timer = setInterval(play,1000);
+
+    function play(){
+      ul_num++;
+      if(ul_num > ulList.length - 1){
+        ul_num = 0;
+        pi.style.left = "0px";
+      }
+      move(pi, -ul_num * 1226);
+
+      li_num++;
+
+      if(li_num > ulList.length - 1){
+        li_num = 0;
+      }
+      for(var i = 0; i < ulList.length; i++){
+        ulList[i].style.backgroundColor = "gray";
+      }
+      ulList[li_num].style.backgroundColor = "white";
+    }
+
+    box.onmouseover = function () {
+       clearInterval(timer);
+    };
+
+    box.onmouseout = function () {
+        timer = setInterval(play, 1000);
+    };
+
+
+  </script>
+</body>
+</html>

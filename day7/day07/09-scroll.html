@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .f {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 50px auto;
+            overflow: auto;
+        }
+
+        .s {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="f" id="f-id">
+    <div class="s" id="s-id">
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+        看深加工空姐代购大家看到好看就看到好的空间好看极度恐慌<br/>
+    </div>
+</div>
+
+<script>
+    var f = document.getElementById("f-id");
+    var s = document.getElementById("s-id");
+
+    //滚动事件是添加在父盒子上的
+    f.onscroll = function () {
+      console.log(f.scrollLeft);
+    };
+
+    f.scrollLeft = 50;
+    f.scrollTop = 50;
+
+    console.log(f.scrollLeft);
+    console.log(f.scrollTop);
+
+</script>
+
+</body>
+</html>

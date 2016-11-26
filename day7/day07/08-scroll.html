@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,html {
+            height: 2000px;
+            width: 2000px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<script src="scroll.js"></script>
+<script>
+
+    console.log("document.body.scrollHeight", document.body.scrollHeight);
+    console.log("document.body.scrollWidth", document.body.scrollWidth);
+
+    console.log("documet.compatMode", document.compatMode);//CSS1Compat
+
+    //针对整个可视窗口拖动条事件
+    window.onscroll = function () {
+
+/*        //chrome
+        console.log("document.body.scrollLeft", document.body.scrollLeft);
+        console.log("document.body.scrollTop", document.body.scrollTop);
+
+        //firefox, ie10
+        console.log("document.documentElement.scrollLeft", document.documentElement.scrollLeft);
+        console.log("document.documentElement.scrollTop", document.documentElement.scrollTop);*/
+
+//        console.log(window.pageYOffset);
+
+        console.log(scroll().top);
+        console.log(scroll().left);
+
+    };
+
+</script>
+</body>
+</html>
