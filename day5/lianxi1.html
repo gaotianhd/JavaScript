@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自动生成小圆点</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 730px;
+      height: 454px;
+      border: 1px solid red;
+      margin: 100px auto;
+      position: relative;
+    }
+    ul{
+      list-style: none;
+    }
+    #ul1{
+      height: 20px;
+      line-height: 20px;
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box1">
+    <ul id="ul1"></ul>
+  </div>
+  <script type="text/javascript">
+    var ul1 = document.getElementById('ul1');
+    var box = document.getElementById('box1');
+    var piList = [
+      "url(./images/11.jpg)",
+      "url(./images/22.jpg)",
+      "url(./images/33.jpg)",
+      "url(./images/44.jpg)",
+      "url(./images/55.jpg)",
+      "url(./images/66.jpg)"
+    ];
+    for(var i = 1; i <= 6;i ++){
+      var node = document.createElement('li');
+      node.innerHTML = i;
+      node.style.cssText = "width:20px;height:20px;margin-left:5px;border-radius: 10px;background:white; float: left;text-align:center;cursor: pointer;";
+      ul1.appendChild(node);
+    }
+    box.style.background = piList[0];
+    var lList = ul1.getElementsByTagName('li');
+    lList[0].style.background = "red";
+    for(var i = 0;i < lList.length;i ++){
+      lList[i].index = i;
+      lList[i].onclick = function(){
+        for(var j =0;j<lList.length;j++){
+          lList[j].style.background = "white";
+        }
+        this.style.background = "red";
+        box.style.background = piList[this.index];
+      }
+    }
+  </script>
+</body>
+</html>

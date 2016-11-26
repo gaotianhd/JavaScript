@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>event</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="div"></div>
+  <script type="text/javascript">
+    var d = document.getElementById('div');
+
+    //其中参数false，表示事件采用冒泡方式，从内向外扩散（常用）
+
+    // d.addEventListener('click',function(){
+    //   alert('div被点击');
+    // },false)
+    // document.body.addEventListener('click',function(){
+    //   alert('body被点击');
+    // },false)
+
+    //参数为true，表示事件采用的是捕获方式，由外向内（不常用）
+
+    d.addEventListener('click',function(e){
+      e = e || window.e;
+      alert('div被点击');
+      console.log(e.bubbles);//bubbles属性值表示事件是否支持冒泡，默认是true
+      e.stopPropagation();//停止冒泡，再ie中需要使用e.cancelBubble = true来取消
+    },false)
+    document.body.addEventListener('click',function(e){
+      alert('body被点击');
+    },false)
+
+
+  </script>
+</body>
+</html>

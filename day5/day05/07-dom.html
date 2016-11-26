@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom 节点</title>
+</head>
+<body>
+
+<div>
+    <div id="div-id">思考就赶快就看过 <p></p>  helloworld</div>
+</div>
+
+<script>
+    var d = document.getElementById("div-id");
+/*    console.log(d.nodeType);//1
+    console.log(document.nodeType);//9
+
+    console.log(d.childNodes[0].nodeType);// 3
+    console.log(d.childNodes[0]);//
+    console.log(d.childNodes[1]);//
+    console.log(d.childNodes[2]);//*/
+
+    console.log(d.parentNode);//直接得到父节点
+
+
+
+</script>
+</body>
+</html>

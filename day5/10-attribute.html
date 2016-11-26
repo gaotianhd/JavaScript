@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title</title>
+</head>
+<body>
+  <div id="div">sd敢达发个</div>
+  <script type="text/javascript">
+    var d = document.getElementById('div');
+    //特性的添加，访问
+    d.setAttribute('class','box');
+    d.setAttribute('style','color:red;');
+    console.log(d.getAttribute('style'));
+    console.log(d.getAttribute('id'));
+    //特性的删除
+    d.removeAttribute('style');
+    //d.className ，这是属性的访问
+    console.log(d.className);
+    // console.log(d.class);
+    console.log(d.id);
+    //一次修改或者添加多个css样式
+    d.style.cssText = "width:200px;height:200px;background:red;";
+    //用attribute得到的是特性，用点访问的是属性，它们可能一样，也可能不一样，但是不是一个东西
+  </script>
+</body>
+</html>

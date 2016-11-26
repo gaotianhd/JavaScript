@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>坐标相关</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,html {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    document.body.onclick = function (e) {
+
+        //都是只读属性
+        console.log("e.clientY = ", e.clientY);//px, 默认返回的单位是px
+        console.log("e.screenY = ", e.screenY);//px, 默认返回的单位是px
+        console.log("e.pageY = ", e.pageY);//相对于整个页面顶部的距离，包括滚动条的移动部分
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div-id">看到结果看见sd卡工具</div>
+
+<script>
+    var d = document.getElementById("div-id");
+
+    //特性的添加，访问
+    d.setAttribute("class", "box");
+    d.setAttribute("style", "color: red;");
+    console.log(d.getAttribute("id"));
+    console.log(d.getAttribute("class"));
+
+    //删除特性
+    d.removeAttribute("style");
+
+    //d.className ，这是属性的访问
+    console.log(d.className);
+    console.log(d.class);
+    console.log(d.id);
+
+
+</script>
+
+</body>
+</html>

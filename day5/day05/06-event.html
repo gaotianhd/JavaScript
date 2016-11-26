@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标点击</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box" id="div-id"></div>
+    <script>
+        var d = document.getElementById("div-id");
+        d.onmousedown = function (e) {
+//            console.log(e.which);
+            console.log(e.button);
+        };
+    </script>
+</body>
+</html>

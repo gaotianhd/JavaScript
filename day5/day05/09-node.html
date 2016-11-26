@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点的操作方法</title>
+</head>
+<body>
+
+<div id="div-id"></div>
+
+<script>
+    var d = document.getElementById("div-id");
+
+    //创建一个元素节点
+    var d1 = document.createElement("div");
+    d1.innerHTML = "我是第一个子节点";
+
+    var d2 = document.createElement("div");
+    d2.innerHTML = "我是第二个子节点";
+
+    var d3 = document.createElement("div");
+    d3.innerHTML = "我是第三个子节点";
+
+    var d4 = document.createElement("div");
+    d4.innerHTML = "我是第四个子节点";
+
+
+    //将新节点添加到页面中去
+    d.appendChild(d1);
+    d.appendChild(d2);
+
+    d.insertBefore(d3, d.firstElementChild);
+    d.insertBefore(d4, null);
+
+
+    //节点的删除
+/*    var del = d.removeChild(d.firstElementChild);
+    console.log("删除的节点是 ",del);
+    d.removeChild(d.children[2]);*/
+
+
+/*    var dCopy = d.cloneNode(false);
+    console.log("d元素的浅拷贝模式： ", dCopy);
+
+    dCopy = d.cloneNode(true);
+    console.log("d元素的深拷贝模式： ", dCopy);
+    document.body.appendChild(dCopy);*/
+
+
+    //将d的最后一个节点进行克隆操作
+    var dcopy = d.lastElementChild.cloneNode(true);
+    d.insertBefore(dcopy, d.firstElementChild);
+
+
+</script>
+
+</body>
+</html>

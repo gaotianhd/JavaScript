@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止事件的默认行为</title>
+</head>
+<body>
+
+<a href="https://www.baidu.com" id="a-id">点击跳到百度</a>
+
+<script>
+    var link = document.getElementById("a-id");
+
+    link.onclick = function (e) {
+        console.log(".....");
+//        e.preventDefault();//阻止默认行为, 针对ie低版本，需要使用e.returnValue = false来取消默认行为
+    };
+
+</script>
+</body>
+</html>

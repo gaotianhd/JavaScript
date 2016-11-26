@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>取消默认行为</title>
+</head>
+<body>
+  <a href="https://www.baidu.com" id="a1">点击跳到百度</a>
+  <script type="text/javascript">
+    var link = document.getElementById('a1');
+    link.onclick = function(e){
+      e = e || window.e;
+      e.preventDefault();//阻止默认行为,针对ie低版本，需要使用e.returnValue = false来取消默认的行为
+    };
+  </script>
+</body>
+</html>

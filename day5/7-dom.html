@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dom 节点</title>
+</head>
+<body>
+  <div id="div">
+    sd敢达发<br>
+    水果和时代感</div>
+  <script type="text/javascript">
+    var d = document.getElementById('div');
+    console.log(d.nodeType);//1
+    console.log(document.nodeType);//9
+    console.log(d.childNodes);
+    console.log(d.childNodes[0].nodeType);//3
+    console.log(d.parentNode);
+  </script>
+</body>
+</html>

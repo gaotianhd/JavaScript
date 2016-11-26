@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+  <div class="box" id="div-id"></div>
+
+  <script>
+      var d = document.getElementById("div-id");
+
+/*
+      d.onclick = function () {
+          alert("div 被点击...");
+      };
+
+      document.body.onclick = function () {
+          alert(" body 被点击...");
+      };
+*/
+
+      // 其中参数false,表示事件采用冒泡方式，从内向外扩散;（常用）
+      // 参数为true时，表示事件采用的是捕获方式， 由外向内。(不常用)
+      d.addEventListener("click", function (e) {
+          console.log("div 点击。。。");
+          console.log(e.bubbles);//bubbles属性值表示事件是否支持冒泡
+          e.stopPropagation();//停止冒泡， 在ie中需要使用e.cancelBubble = true来取消
+      }, false);
+
+      document.body.addEventListener("click", function () {
+          console.log(" body 被点击...");
+      }, false);
+  </script>
+</body>
+</html>

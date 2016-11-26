@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>微博</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 500px;
+      border: 1px solid red;
+      margin: 100px auto;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    ul{
+      list-style: none;
+    }
+    #ul1{
+      width: 410px;
+      margin-left: 50px;
+    }
+    ul li{
+      width:400px;
+      height:20px;
+      line-height:20px;
+      padding:5px 0;
+      border-bottom:1px dashed lightgreen;
+    }
+    ul li a {
+      text-decoration: none;
+      color:red;
+      float:right;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <span>微博：</span>
+    <textarea id="t1" maxlength="20" placeholder="输入字数小于20" name="name" rows="8" cols="30"></textarea>
+    <input id="btn1" type="button" name="name" value="发布">
+    <ul id="ul1"></ul>
+  </div>
+  <script type="text/javascript">
+    var t1 = document.getElementById('t1');
+    var btn1 = document.getElementById('btn1');
+    var ul1 = document.getElementById('ul1');
+    btn1.onclick = function(){
+      var lNode = document.createElement('li');
+      var aNode = document.createElement('a');
+      aNode.innerHTML = "删除";
+      if(t1.value == ''){
+        alert("输入内容不能为空!");
+      }else{
+        lNode.innerHTML = t1.value;
+        ul1.insertBefore(lNode,ul1.firstElementChild);
+        t1.value = '';
+        lNode.appendChild(aNode);
+        aNode.onclick = function(){
+          ul1.removeChild(this.parentNode);
+        };
+      }
+    };
+  </script>
+</body>
+</html>
