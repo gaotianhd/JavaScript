@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 400px;
+            height: 300px;
+            background: lightsalmon;
+            margin: 50px auto;
+        }
+
+        .box-head {
+            height: 50px;
+        }
+
+        .box-head ul li {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+            background: lime;
+        }
+
+        .box-head ul li.current {
+            background: none;
+        }
+
+        .box-content {
+            height: 250px;
+        }
+
+        .box-content ul {
+            width: 100%;
+            height: 250px;
+        }
+        .box-content ul li {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            display: none;
+        }
+
+        .box-content ul li.current {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+   <div class="box-head" id="head-id">
+       <ul>
+           <li class="current">国内</li>
+           <li>国际</li>
+           <li>社会</li>
+           <li>百家</li>
+       </ul>
+   </div>
+    <div class="box-content" id="content-id">
+        <ul>
+            <li class="current">国内新闻</li>
+            <li>国际新闻</li>
+            <li>社会新闻</li>
+            <li>百家新闻</li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    var boxHead = document.getElementById("head-id");
+    var boxContent = document.getElementById("content-id");
+
+    var headLis = boxHead.getElementsByTagName("li");
+    var conLis = boxContent.getElementsByTagName("li");
+
+    for (var i = 0; i < headLis.length; i++) {
+
+        //给当前的对象添加一个myIndex属性
+        headLis[i].myIndex = i;
+
+        headLis[i].onmouseover = function () {
+            for(var j = 0; j < headLis.length; j++) {
+                headLis[j].className = "";
+                conLis[j].className = "";
+            }
+
+            this.className = "current";
+            conLis[this.myIndex].className = "current";
+        };
+
+    }
+</script>
+</body>
+</html>

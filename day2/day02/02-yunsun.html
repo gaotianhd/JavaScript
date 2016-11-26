@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运算符</title>
+</head>
+<body>
+
+<script>
+    var a = 10, b = 10, m, n;
+    m = a++;
+    n = b--;
+    console.log("a = " + a);//11
+    console.log("b = " + b);//9
+    //当“++” “--” 放在变量的后边时，表达式的值不会变
+    console.log("m = " + m);//10
+    console.log("n = " + n);//10
+
+    a = b = 10;
+    m = ++a;
+    n = --b;
+    console.log("a = " + a);//
+    console.log("b = " + b);//
+    //当“++” “--” 放在变量的前边时，表达式的值也会变
+    console.log("m = " + m);//
+    console.log("n = " + n);//
+
+
+    console.log("===== + 号作为一元操作符  类似于Number()=====")
+    var s1 = "01", s2="a", s3 = "1.1", s4 = true;
+    console.log(+s1);
+    console.log(+s2);
+    console.log(+s3);
+    console.log(+s4);
+
+
+
+
+</script>
+
+</body>
+</html>

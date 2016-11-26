@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>选择</title>
+  <style media="screen">
+    #box{
+      width: 200px;
+      height: 250px;
+      margin: 100px auto;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    选项1： <input type="checkbox" name="name" value=""><br>
+    选项2： <input type="checkbox" name="name" value=""><br>
+    选项3： <input type="checkbox" name="name" value=""><br>
+    选项4： <input type="checkbox" name="name" value=""><br>
+    选项5： <input type="checkbox" name="name" value=""><br>
+    选项6： <input type="checkbox" name="name" value=""><br>
+    选项7： <input type="checkbox" name="name" value=""><br>
+    选项8： <input type="checkbox" name="name" value=""><br>
+    选项9： <input type="checkbox" name="name" value=""><br>
+    <input id="btn1" type="button" name="bt" value="全选">
+    <input id="btn2" type="button" name="bt" value="反选">
+    <input id="btn3" type="button" name="bt" value="取消选择">
+  </div>
+
+<script type="text/javascript">
+  //盒子不支持getElementsByName方法，一般少用
+  var box1 = document.getElementById("box");
+  var lists = box1.getElementsByTagName("input");
+  var btn1 = document.getElementById("btn1");
+  var btn2 = document.getElementById("btn2");
+  var btn3 = document.getElementById("btn3");
+  // document.write(lists.length);
+  btn1.onclick = function(){
+    for(var i = 0 ; i < lists.length ; i ++){
+      lists[i].checked = true;
+    }
+  };
+  btn2.onclick = function(){
+    for(var i = 0 ; i < lists.length ; i ++){
+      // if(lists[i].checked){
+      //   lists[i].checked = false;
+      // }else{
+      //   lists[i].checked = true;
+      // }
+      lists[i].checked = !lists[i].checked;
+    }
+  };
+  btn3.onclick = function(){
+    for(var i = 0 ; i < lists.length ; i ++){
+      lists[i].checked = false;
+    }
+  };
+</script>
+</body>
+</html>

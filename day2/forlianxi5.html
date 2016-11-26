@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>新闻</title>
+  <style media="screen">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+    ul{
+      list-style: none;
+    }
+    .box {
+      width: 400px;
+      height: 300px;
+      margin: 100px auto;
+      background: yellow;
+    }
+    .box-head{
+      height: 50px;
+    }
+    .box-head ul li{
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      float: left;
+      background: lime;
+    }
+    .box-head ul li.current{
+      background: none;
+    }
+    .box-con{
+      height: 250px;
+    }
+    .box-con ul{
+      width: 100%;
+      height: 250px;
+    }
+    .box-con ul li{
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      display: none;
+    }
+    .box-con ul li.current{
+      display: block;
+    }
+    /*.current{
+      background: none;
+      display: block;
+    }*/
+  </style>
+</head>
+<body>
+  <div id="box" class="box">
+    <div id="box-head" class="box-head">
+      <ul>
+        <li class="current">国内</li>
+        <li>国际</li>
+        <li>社会</li>
+        <li>百家</li>
+      </ul>
+    </div>
+    <div id="box-con" class="box-con">
+      <ul>
+        <li class="current">国内新闻</li>
+        <li>国际新闻</li>
+        <li>社会新闻</li>
+        <li>百家新闻</li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var boxHead = document.getElementById("box-head");
+    var boxCon = document.getElementById("box-con");
+    var listsHead = boxHead.getElementsByTagName("li");
+    var listsCon = boxCon.getElementsByTagName("li");
+    for(var i = 0 ; i < listsHead.length ; i ++){
+      listsHead[i].myIndex = i;
+      listsHead[i].onmouseover = function(){
+        for(var j = 0 ; j < listsHead.length ; j ++){
+          listsHead[j].className = "";
+          listsCon[j].className = "";
+        }
+        this.className = "current";
+        listsCon[this.myIndex].className = "current";
+      };
+    }
+  </script>
+</body>
+</html>

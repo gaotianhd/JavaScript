@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        .box ul li {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .current {
+            background: green !important;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box" id="box-id">
+    <ul>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+        <li>接收到结果看就看大家看</li>
+    </ul>
+</div>
+
+
+
+<script>
+    var box = document.getElementById("box-id");
+    var lis = box.getElementsByTagName("li");//在box的子孙元素中查找li元素
+    console.log(lis.length);
+
+    for (var i = 0; i < lis.length; i++) {
+        if (i % 2 == 0) {
+            lis[i].style.background = "pink";
+        }
+
+        lis[i].onmouseover = function () {
+            //this指向的是当前的lis[i]对象
+            this.className = "current";
+        };
+
+        lis[i].onmouseout = function () {
+            this.className = "";
+        };
+    }
+
+
+</script>
+</body>
+</html>

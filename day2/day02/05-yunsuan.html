@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相等比较</title>
+</head>
+<body>
+
+<script>
+    console.log("10" == 10); //转换后进行比较， true
+    console.log("10" != 10); //false
+
+
+    console.log("10" === 10); //false, 不转换，直接比较，类型不一致也为false
+    console.log("10" !== 10); //true
+
+    console.log(NaN == NaN); //false
+
+    var a = 10, b = 2;
+    var ret = (a < b) ? a : b;
+
+    a = a + 2;
+    a += 2;
+
+</script>
+</body>
+</html>

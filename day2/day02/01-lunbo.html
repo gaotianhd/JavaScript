@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 490px;
+            height: 170px;
+            margin: 50px auto;
+            position: relative;
+            background: url("./image/lunbo/01.jpg") no-repeat;
+        }
+
+        .btn {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .btn span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            background: gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="box-id">
+    <!--<img src="./image/lunbo/01.jpg" alt="">-->
+    <!--<img src="./image/lunbo/02.jpg" alt="">-->
+    <!--<img src="./image/lunbo/03.jpg" alt="">-->
+    <!--<img src="./image/lunbo/04.jpg" alt="">-->
+    <!--<img src="./image/lunbo/05.jpg" alt="">-->
+
+    <div class="btn">
+        <span id="span-1">1</span>
+        <span id="span-2">2</span>
+        <span id="span-3">3</span>
+        <span id="span-4">4</span>
+        <span id="span-5">5</span>
+    </div>
+</div>
+
+<script>
+
+    var span1 = document.getElementById("span-1");
+    var span2 = document.getElementById("span-2");
+    var span3 = document.getElementById("span-3");
+    var span4 = document.getElementById("span-4");
+    var span5 = document.getElementById("span-5");
+    var box = document.getElementById("box-id");
+
+    span1.onclick = function () {
+        box.style.backgroundImage = "url(./image/lunbo/01.jpg)";
+    };
+
+    span2.onclick = function () {
+        box.style.backgroundImage = "url(./image/lunbo/02.jpg)";
+    };
+
+    span3.onclick = function () {
+        box.style.backgroundImage = "url(./image/lunbo/03.jpg)";
+    };
+
+    span4.onclick = function () {
+        box.style.backgroundImage = "url(./image/lunbo/04.jpg)";
+    };
+
+    span5.onclick = function () {
+        box.style.backgroundImage = "url(./image/lunbo/05.jpg)";
+    };
+</script>
+
+
+
+
+</body>
+</html>

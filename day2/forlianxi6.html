@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jd</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 1000px;
+      height: 340px;
+      margin: 100px auto;
+      /*border: 1px solid red;*/
+    }
+    .top{
+      height: 40px;
+    }
+    ul{
+      list-style: none;
+    }
+    .top ul{
+      float: right;
+      border-top: 1px solid #d3d3d3;
+      border-left: 1px solid #d3d3d3;
+      border-right: 1px solid #d3d3d3;
+    }
+    .top h4{
+      height: 38px;
+      line-height: 38px;
+      float: left;
+    }
+    .top ul li{
+      /*width: 64px;*/
+      height: 20px;
+      line-height: 20px;
+      margin: 9px 0;
+      text-align: center;
+      float: right;
+      border-right: 1px solid #d3d3d3;
+      cursor: pointer;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .top ul li:first-child{
+      border-right: none;
+    }
+    .top ul li.current{
+      margin: 0;
+      /*width: 62px;*/
+      height: 36px;
+      line-height: 36px;
+      margin-right: -1px;
+      margin-left: -1px;
+      border-left: 1px solid red;
+      border-right: 1px solid red;
+      border-top: 3px solid red;
+      border-bottom: 1px solid white;
+      position: relative;
+      z-index: 1;
+    }
+    .nav{
+      height: 300px;
+      border: 1px solid red;
+    }
+    .nav ul{
+      width: 100%;
+      height: 300px;
+    }
+    .nav ul li{
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      display: none;
+    }
+    .nav ul li.current{
+      display: block;
+    }
+    .div1{
+      width: 100px;
+      height: 20px;
+      margin-top: 10px;
+    }
+    @keyframes run {
+      0%{
+        transition: all 1s linear
+      }
+      100%{
+        transition: all 1s linear;
+        bottom:0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="top" id="top">
+      <h4>服装鞋包</h4>
+      <ul>
+        <li>衣服8</li>
+        <li>衣服7</li>
+        <li>衣服6</li>
+        <li>衣服5</li>
+        <li>属性测试</li>
+        <li>保护你的眼</li>
+        <li>闪瞎你的眼</li>
+        <li class="current">改变颜色</li>
+      </ul>
+    </div>
+    <div class="nav" id="nav">
+      <ul>
+        <li>衣服8</li>
+        <li>衣服7</li>
+        <li>衣服6</li>
+        <li>
+          <input id="btn5" type="button" name="btn5" value="妈的星空奥">
+        </li>
+        <li>
+          属性测试：
+          <input id="t2" type="text" name="text2" value=""><br>
+          <input id="btn4" type="button" name="btn4" value="测试">
+          <div id="div1"class="div1"></div>
+        </li>
+        <li>
+          <input id="btn3" type="button" name="btn3" value="保护狗眼人人有责">
+        </li>
+        <li>
+          <input id="btn2" type="button" name="btn2" value="多点几次亮瞎你的狗眼">
+        </li>
+        <li class="current">请输入颜色：
+          <input id="t1" type="text" name="text1" value="">
+          <input id="btn1" type="button" name="btn1" value="点击">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var boxTop = document.getElementById("top");
+    var boxNav = document.getElementById("nav");
+    var topList = boxTop.getElementsByTagName("li");
+    var navList = boxNav.getElementsByTagName("li");
+    var navText1 = document.getElementById("t1");
+    var navText2 = document.getElementById("t2");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    var btn5 = document.getElementById("btn5");
+    var div1 = document.getElementById("div1");
+    for(var i = 0 ; i < topList.length ; i ++){
+      topList[i].myIndex = i;
+      topList[i].onmouseover = function(){
+        for(var j = 0 ; j < topList.length ; j ++){
+          topList[j].className = "";
+          navList[j].className = "";
+        }
+        this.className = "current";
+        navList[this.myIndex].className = "current";
+      };
+    }
+
+    var colorTable = ["red", "blue", "yellow"];
+    var i = 0;
+    var changeColor = function() {
+      boxNav.style.background = colorTable[i];
+      i ++;
+      if(i == colorTable.length) {
+        i = 0;
+      }
+    }
+    btn1.onclick = function(){
+      var color = navText1.value;
+      if (color == "green"){
+        boxNav.style.background = "green";
+      }else if (color == "red"){
+        boxNav.style.background = "red";
+      }else if(color == "yellow"){
+        boxNav.style.background = "yellow";
+      }else{
+        boxNav.style.background = "";
+      }
+    };
+
+    var array = [];
+    btn2.onclick = function(){
+      // boxNav.style.background = "linear-gradient(to right,red,orange,yellow,green)";
+      // boxNav.style.background = "transition: all 1s linear";
+      var p = setInterval(changeColor, 1000);
+      array.push(p);
+      btn3.onclick = function(){
+        for(var g = 0 ; g < array.length ; g ++){
+          clearInterval(array[g]);
+        }
+      }
+    };
+    var isClick = false;
+    div1.onclick = function(){
+      isClick = true;
+    }
+    btn4.onclick = function(){
+      if(isClick){
+        navText2.value = "你炒鸡厉害！";
+        isClick = false;
+      }else{
+        navText2.value = "你丫傻逼吧！";
+      }
+    }
+    btn5.onclick = function(){
+      boxNav.style.background = "#222233";
+      for(var i = 0 ; i < 10 ; i ++){
+        var d = document.createElement("div");
+        d.setAttribute("style","width:10px;height:10px;float:right;background:white;top:0;margin-left:10px;border-radius: 5px;animation: run 1s linear infinite;");
+        // d.setAttribute("height","10");
+        // d.setAttribute("float","left");
+        this.parentNode.appendChild(d);
+      }
+    }
+  </script>
+</body>
+</html>

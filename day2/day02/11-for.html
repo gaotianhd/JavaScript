@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输出hr</title>
+</head>
+<body>
+
+
+<script>
+
+    for (var i = 0; i < 300; i += 20) {
+
+        //可以直接向html页面添加元素
+        document.write("<hr width=" + i + "/>");
+    }
+
+    for (var i = 300; i >= 0 ; i -= 20) {
+        document.write("<hr width=" + i + "/>");
+    }
+
+</script>
+
+</body>
+</html>

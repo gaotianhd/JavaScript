@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变色</title>
+  <style media="screen">
+    ul{
+      list-style: none;
+      padding: 0;
+    }
+    ul li{
+      width: 100px;
+      height: 100px;
+      background: pink;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" name="name" value="变色">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script type="text/javascript">
+    var lists = document.getElementsByTagName("li");
+    var btn1 = document.getElementsByName("name");
+    btn1[0].onclick = function(){
+      for(var i = 0; i < lists.length; i ++){
+        if(i%2 == 0){
+          lists[i].style.background = "red";
+        }else{
+          lists[i].style.background = "green";
+        }
+      }
+    };
+  </script>
+</body>
+</html>

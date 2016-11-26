@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: green;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn-1">点击变为红色</button>
+<button id="btn-2">点击变为黄色</button>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    var btn1 = document.getElementById("btn-1");
+    var btn2 = document.getElementById("btn-2");
+
+    //按照标签名称获得元素对象, 返回的是一个数组
+    var divs = document.getElementsByTagName("div");
+    console.log(divs.length);//数组的元素个数
+
+
+    btn1.onclick = function () {
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.background = "red";
+        }
+    };
+
+    btn2.onclick = function () {
+        for (var i = 0; i < divs.length; i++) {
+            divs[i].style.background = "yellow";
+        }
+    };
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逗号运算符</title>
+</head>
+<body>
+
+<script>
+    var a = 1, b = 2, c = 3;
+
+    //逗号表达式的最终结果为最后一个表达式的结果， 但是所有的表达式都会进行运算
+    var ret = (a++, b++, c++);
+    console.log("ret = " + ret);
+    console.log("a = "  + a);
+    console.log("b = "  + b);
+
+</script>
+</body>
+</html>

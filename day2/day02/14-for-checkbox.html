@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="box">
+选项1 ：<input  type="checkbox" >
+选项2 ：<input  type="checkbox" >
+选项3 ：<input  type="checkbox" >
+选项4 ：<input  type="checkbox" >
+选项5 ：<input  type="checkbox" >
+</div>
+<br/>
+<button>全选</button>
+<button>反选</button>
+<button>取消全选</button>
+
+<script>
+    var inputs = document.getElementsByTagName("input");
+    var btns = document.getElementsByTagName("button");
+
+    btns[0].onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = true;
+        }
+    };
+
+    btns[2].onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = false;
+        }
+    };
+
+    btns[1].onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = !inputs[i].checked;
+        }
+    };
+
+
+</script>
+</body>
+</html>
