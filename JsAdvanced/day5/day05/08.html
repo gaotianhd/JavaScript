@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>高阶函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+     function sum(){
+       var sum = 0;
+       Array.prototype.forEach.call(arguments, function(e, i, a){
+         sum += e;
+       });
+
+       return sum;
+     }
+
+     function power(a){
+       return a * a;
+     }
+
+     // (a+b)^2
+     //生成组合功能函数
+     //fn1: power, 用于计算平方
+     //fn2: sum, 用于计算和
+     function compos(fn1, fn2){
+       return function(){
+         return fn1.call(null, fn2.apply(null, arguments));
+       };
+     }
+
+
+     var newFn = compos(power, sum);
+     console.log(newFn(1,2,3,4));
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>woker的创建和使用</title>
+  </head>
+  <body>
+    <h1 id='h'>这是主线程</h1>
+
+    <script>
+      var workerOne = new Worker("work.js");
+
+      //当前页面接收到worker线程发送的消息时，触发该事件
+      workerOne.onmessage = function(e){
+          // console.log(e.data.name, e.data.age);
+          console.log(e.data.num);
+          if (e.data.num == 10){
+            //终止一个后台线程
+            workerOne.terminate();
+            //线程被终止之后，一定注意先赋值为null
+            workerOne = null;
+          }
+      };
+
+      workerOne.postMessage("start working ...");
+
+      workerOne.onerror = function(e){
+        console.log(e.filename, e.lineno, e.message);
+      };
+
+
+
+
+    </script>
+
+  </body>
+</html>

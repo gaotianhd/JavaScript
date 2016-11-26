@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>navigator属性</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    console.log(navigator.vendor);
+    console.log(navigator.userAgent);
+    // console.log(navigator.userLanguage);//不支持了
+    console.log(navigator.platform);
+
+
+    var plugins = navigator.plugins;
+    for (var i = 0; i < plugins.length; i++){
+      console.log(plugins[i].name);
+    }
+
+    </script>
+
+  </body>
+</html>

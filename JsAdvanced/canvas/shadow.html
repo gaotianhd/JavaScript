@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>阴影</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var ctx = can.getContext('2d');
+    ctx.shadowColor = "green";
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 20;
+    ctx.shadowOffsetY = 20;
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(100,100,200,100);
+
+    ctx.beginPath();
+    //绘制的文本仍然受shadow参数的影响
+    ctx.font = "30px 宋体";
+    ctx.fillText("阴影",300,300);
+  </script>
+</body>
+</html>

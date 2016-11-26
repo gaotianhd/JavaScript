@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>地理定位 获得静态图片</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=bqHWbmgjAXI7THmM4aG0mwmBXS9SX2c9">
+    </script>
+    <style media="screen">
+    img{
+      margin-top: 50px;
+    }
+    </style>
+
+  </head>
+  <body>
+    <button id='btn'> 点击获得区域静态地图</button><br/>
+
+    <script type="text/javascript">
+      if (navigator.geolocation){
+        console.log(true);
+      } else {
+        console.log(false);
+      }
+
+      var btn = document.getElementById("btn");
+      btn.onclick = function(e){
+        navigator.geolocation.getCurrentPosition(sucess, error);
+      };
+
+      function sucess(pos){
+        console.log("经度", pos.coords.longitude);
+        console.log("纬度", pos.coords.latitude);
+        console.log("海拔高度", pos.coords.altitude);
+        console.log("精确度", pos.coords.accuracy);
+
+       //静态代码
+       var img = new Image();
+       img.src = "http://api.map.baidu.com/staticimage/v2?ak=bqHWbmgjAXI7THmM4aG0mwmBXS9SX2c9" +
+       "&mcode=666666&center= " + "116.403874,39.914888" + "&width=500&height=300&zoom=11";
+
+        document.body.appendChild(img);
+      }
+
+
+        function error(err){
+        console.log("定位失败", err.message);
+      }
+
+    </script>
+
+  </body>
+</html>

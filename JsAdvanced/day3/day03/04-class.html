@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>classList的应用</title>
+  </head>
+  <body>
+
+    <div id="div" class="div1 div2"></div>
+
+    <script type="text/javascript">
+      var div = document.querySelector('#div');
+      console.log(div.className);
+      console.log("div.classList" , div.classList);
+
+
+      //添加类
+      div.classList.add("div3", "div4");
+
+      //删除类
+      div.classList.remove("div1", "div2");
+
+      //已经存在时，没有作用
+      div.classList.add("div3", "div4");
+
+      div.classList.toggle("div3");
+      div.classList.toggle("div4");
+
+      div.classList.add("div3", "div4");
+      console.log(div.classList.contains("div3"));
+
+      //获得指定位置的className
+      console.log(div.classList.length);
+      console.log(div.classList.item(0));
+      console.log(div.classList.item(1));
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>画布缩放</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+  var can = document.getElementById("canvas");
+  can.width = 600;
+  can.height = 600;
+  can.style.border = "1px solid red";
+
+  //获得画布上下文对象
+  var ctx = can.getContext('2d');
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = "blue";
+  ctx.strokeRect(0,0,100,100);
+
+  ctx.scale(2,2);//对后续绘制产生影响
+  ctx.strokeRect(0,0,100,100);
+  ctx.strokeRect(100,100,10,10);
+
+  ctx.scale(1,1);//没有作用
+  ctx.beginPath();
+  ctx.strokeStyle = "red";
+  ctx.strokeRect(100,100,10,10);
+  </script>
+</body>
+</html>

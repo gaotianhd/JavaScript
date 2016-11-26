@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <a href="./05-history-go.html">跳到05-history-go.html</a>
+    <button id='btn'>后退到上一个页面</button>
+    <button id='btn-1'>前进到 05-history-go.html页面</button>
+
+    <script type="text/javascript">
+      var btn = document.getElementById('btn');
+      var btn1 = document.getElementById('btn-1');
+
+      btn.onclick = function(e){
+        // history.back();//就是后退一级
+        history.go(-1);//后退
+      };
+
+      btn1.onclick = function(e){
+        // history.go(1);//前进一个页面
+        //history.forward();//前进一个页面
+        history.go(2);//前进一个页面
+      };
+    </script>
+
+  </body>
+</html>

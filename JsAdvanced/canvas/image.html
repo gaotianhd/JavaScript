@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>将图片显示在画布上</title>
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+  <button type="button" name="button" id="btn1">font</button>
+  <button type="button" name="button" id="btn2">left</button>
+  <button type="button" name="button" id="btn3">right</button>
+  <button type="button" name="button" id="btn4">back</button>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid gray";
+    var ctx = can.getContext('2d');
+    var timer = null;
+    var img = new Image();
+    img.src = "./1.png";
+    var x = 0,y = 0;
+    img.onload = function(e){
+      var w = img.width/4,h = img.height/4;
+      timer = setInterval(function(){
+            can.width = can.height = 500;
+            ctx.drawImage(img,w*x,h*y,w,h,200,200,w,h);
+            x++;
+            x %= 4;
+      },100);
+      btn1.onclick = function(e){
+        // clearInterval(timer);
+        y = 0;
+      };
+
+      btn2.onclick = function(e){
+        // clearInterval(timer);
+        // timer = setInterval(function(){
+        //       can.width = can.height = 500;
+        //       ctx.drawImage(img,w*x,h,w,h,200,200,w,h);
+        //       x++;
+        //       x %= 4;
+        // },100);
+        y=1;
+      };
+
+      btn3.onclick = function(e){
+        // clearInterval(timer);
+        // timer = setInterval(function(){
+        //       can.width = can.height = 500;
+        //       ctx.drawImage(img,w*x,h*2,w,h,200,200,w,h);
+        //       x++;
+        //       x %= 4;
+        // },100);
+        y=2;
+      };
+
+      btn4.onclick = function(e){
+        // clearInterval(timer);
+        // timer = setInterval(function(){
+        //       can.width = can.height = 500;
+        //       ctx.drawImage(img,w*x,h*3,w,h,200,200,w,h);
+        //       x++;
+        //       x %= 4;
+        // },100);
+        y=3;
+      };
+
+    };
+
+  </script>
+</body>
+</html>

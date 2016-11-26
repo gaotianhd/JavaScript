@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自定义bind</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+       function fn(){
+         console.log(arguments.length);
+       }
+
+      function bind(fn, context){
+        var preArgs = Array.prototype.slice.call(arguments, 2);
+        //arguments是一个位数组，数组的多数方法都不可以用
+       // arguments.slice(2);
+
+         return function(){
+           //将两个数组连接，返回一个新数组
+           var arg = preArgs.concat(Array.prototype.slice.call(arguments));
+           console.log(arg);
+           return fn.apply(context, arg);
+         };
+      }
+
+      var newFn = bind(fn, this, 1,2,3);
+      newFn(4,5,6);
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

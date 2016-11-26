@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dataset自定义属性</title>
+  </head>
+  <body>
+    <div class="box" data-num='0'>0</div>
+    <div class="box" data-num='1'>1</div>
+
+    <script type="text/javascript">
+        var divs = document.querySelectorAll(".box");
+
+        divs.forEach(function(e,i,a){
+            console.log(e.getAttribute("data-num"));
+        });
+
+        divs[0].setAttribute('data-num', 10);
+        divs[1].setAttribute('data-num', 20);
+
+        // divs[0].removeAttribute("data-num");
+        // divs[1].removeAttribute("data-num");
+
+        
+
+    </script>
+
+
+
+  </body>
+</html>

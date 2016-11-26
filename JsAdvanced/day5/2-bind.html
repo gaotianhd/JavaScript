@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数绑定</title>
+</head>
+<body>
+  <button id="btn">btn</button>
+  <button id="btn1">btn1</button>
+  <script type="text/javascript">
+    var btn = document.getElementById('btn')
+    var btn1 = document.getElementById('btn1')
+    btn.data = 20;
+    btn1.data = 21;
+
+    var handler = {
+      data:10,
+      fn:function(e){
+        console.log(this.data);
+      }
+    };
+
+    var data = 30;
+    function fn(){
+      console.log(this.data);
+    }
+    fn();//30
+    fn.apply(btn);//btn.data
+    fn.apply(handler);//handler.data
+
+    //自定义的方法，将一个函数或者方法放到指定的this中执行
+    function bind(fn,context){
+      return function(){
+        return fn.apply(context,arguments);
+      }
+    }
+
+    //自定义的bind函数
+    var newFn = bind(handler.fn,handler);
+    btn.addEventListener('click',newFn,false);
+
+  //使用内置的bind方法
+  var newFn1 = handler.fn.bind(handler);
+  btn1.addEventListener('click',newFn1,false);
+  </script>
+</body>
+</html>

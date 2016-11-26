@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>arc绘制圆饼</title>
+  </head>
+  <body>
+
+    <!--不要使用css控制width，height  -->
+    <canvas id="canvas">你的浏览器不支持canvas</canvas>
+
+    <script type="text/javascript">
+      var can = document.getElementById("canvas");
+      can.width = 600;
+      can.height = 600;
+      can.style.border = "1px solid red";
+
+      //获得画布上下文对象
+      var ctx = can.getContext('2d');
+
+      var data = [
+        {
+          'value': 0.4,
+          'color': "red",
+          'country': "中国"
+        },
+        {
+          'value': 0.3,
+          'color': "blue",
+          'country': "美国"
+        },
+        {
+          'value': 0.2,
+          'color': "pink",
+          'country': "韩国"
+        },
+        {
+          'value': 0.1,
+          'color': "yellow",
+          'country': "印度"
+        }
+      ];
+
+      var beginAngle = endAngle = 0;
+      for (var i = 0; i < data.length; i++){
+        ctx.beginPath();
+        ctx.moveTo(250,250);//填充扇形必须指定圆心坐标
+        ctx.fillStyle = data[i].color;
+        endAngle += 360 * data[i].value;
+        ctx.arc(250,250,150, beginAngle * Math.PI/180, endAngle * Math.PI/180);
+        ctx.fill();
+
+         //填充文本
+        var textAngle = beginAngle + 360 * data[i].value / 2;
+        //文本的x,y坐标值
+        var textX =  250 + 180 * Math.cos(textAngle * Math.PI / 180);
+        var textY =  250 + 180 * Math.sin(textAngle * Math.PI / 180);
+        //
+        // if (textAngle > 90 && textAngle < 270){
+        //   ctx.textAlign = "end";
+        // }
+
+        ctx.fillText(data[i].country + data[i].value * 100 + "%", textX, textY);
+        beginAngle = endAngle;
+      }
+
+
+
+
+
+    </script>
+  </body>
+</html>

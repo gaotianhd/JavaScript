@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数柯基化</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //计算总价
+    function count(){
+      var ret = 1;
+      var arg = Array.prototype.slice.call(arguments);
+      arg.forEach(function(e,i,a){
+        ret *= e;
+      });
+      return ret;
+    }
+
+    function curry(fn,rate){
+      var preArgs = Array.prototype.slice.call(arguments,1);
+      return function(){
+        var arg = preArgs.concat(Array.prototype.slice.call(arguments));
+        return fn.apply(null,arg);
+      };
+    }
+
+    var newFn = curry(count,0.8);
+    console.log(newFn);
+    console.log(newFn(100,10,10));
+  </script>
+</body>
+</html>

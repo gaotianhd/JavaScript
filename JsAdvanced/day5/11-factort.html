@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>工程模式</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Xiaomi(){
+      this.vendor = "xiaomi";
+    }
+
+    function Huawei(){
+      this.vendor = "huawei";
+    }
+
+    function Apple(){
+      this.vendor = "apply";
+    }
+
+    function PhoneShop(){
+    }
+    PhoneShop.prototype = {
+      constructor : PhoneShop,
+      sellPhone:function(mode){
+        var phone;
+        switch (mode){
+          case "xiaomi":
+          phone = new Xiaomi();
+          break;
+
+          case "huawei":
+          phone = new Huawei();
+          break;
+
+          case "apply":
+          phone = new Apply();
+          break;
+
+          default:
+          phone = new Xiaomi();
+          break;
+        }
+        return phone;
+      }
+    };
+    var oneShop = new PhoneShop();
+    var phone = oneShop.sellPhone("huawei");
+    console.log(phone.vendor);
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>垂直方向对齐方式</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+    var ctx = can.getContext('2d');
+    ctx.font = "30px 宋体";
+
+    ctx.beginPath();
+    ctx.strokeStyle = "green";
+    ctx.moveTo(200,0);
+    ctx.lineTo(200,500);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.textAlign = "start";
+    ctx.fillText("start",200,50);
+
+    ctx.beginPath();
+    ctx.textAlign = "end";
+    ctx.fillText("end",200,70);
+
+    ctx.beginPath();
+    ctx.textAlign = "center";
+    ctx.fillText("center",200,90);
+
+    ctx.beginPath();
+    ctx.textAlign = "left";
+    ctx.fillText("left",200,110);
+
+    ctx.beginPath();
+    ctx.textAlign = "right";
+    ctx.fillText("right",200,130);
+
+  </script>
+</body>
+</html>

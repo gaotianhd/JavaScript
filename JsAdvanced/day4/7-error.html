@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>error</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = 10,b = 0;
+
+    try {
+      var c = a / b;
+      console.log(c);
+
+      //Reference error
+      fun();
+
+      //TYpeError
+      // var value = "string".toFixed(2);
+    } catch (e) {
+      //直接输出错误信息
+      console.log("error=",e);
+    } finally {
+      console.log("in finally ....");
+    }
+
+    console.log("after finally....");
+  </script>
+</body>
+</html>

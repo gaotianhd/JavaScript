@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自定义错误</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+       try{
+         var err = new Error("oops");
+         // 抛出一个错误
+         throw err;
+       }
+       catch(e){
+         console.log(e.message);
+       }
+       finally{
+         console.log("in finally ...");
+       }
+
+       console.log("after finally ....");
+    </script>
+
+  </body>
+</html>

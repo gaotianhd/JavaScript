@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拖拽</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    #div-id {
+      height: 200px;
+      border: 2px solid red;
+      margin-top: 100px;
+    }
+
+    #p-id {
+      border: 2px solid green;
+    }
+  </style>
+</head>
+<body>
+  <p id="p-id" draggable="true">我是可拖动的</p>
+  <div id="div-id"></div>
+  <script type="text/javascript">
+    var p = document.getElementById('p-id');
+    var div = document.getElementById('div-id');
+
+    //拖拽开始
+    // p.addEventListener("dragstart",function(e){
+    //   console.log("p start drag...");
+    //   this.style.borderColor = "yellow";
+    // });
+    //
+    // //拖拽中
+    // p.addEventListener("drag",function(e){
+    //   console.log("p drag...");
+    // });
+    //
+    // //拖拽结束
+    // p.addEventListener("dragend",function(e){
+    //   console.log("p drag end...");
+    // });
+    //
+    // p.addEventListener("dragexit",function(e){
+    //   console.log("p exit drag...");
+    // });
+
+    //div,属于目标区域，所以dragenter dragover dragleave
+    //拖拽进入div
+    div.addEventListener("dragenter",function(e){
+      console.log("div drag enter...");
+      this.style.borderColor = "blue";
+    });
+
+    //拖拽在div里
+    div.addEventListener("dragover",function(e){
+      console.log("div drag over...");
+      e.preventDefault();//用于取消默认行为
+      e.stopPropagation();//阻止冒泡
+    });
+
+    //拖拽离开div
+    // div.addEventListener("dragleave",function(e){
+    //   console.log("div drag leave...");
+    // });
+
+    //drop事件，用于接收进入目标区域内的袁术
+    // 成功拖拽文件，必须处理dragover事件，取消默认行为
+    div.addEventListener("drop",function(e){
+      console.log("div drop...");
+      this.appendChild(p);
+    });
+  </script>
+</body>
+</html>

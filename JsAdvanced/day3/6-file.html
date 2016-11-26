@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文件</title>
+</head>
+<body>
+  <input id="file" type="file" multiple>
+  <button id="btn">点击</button>
+  <div id="div"></div>
+  <script type="text/javascript">
+    var div = document.querySelector("#div");
+    var file = document.querySelector("#file");
+    var btn = document.querySelector("#btn");
+
+    btn.addEventListener('click',function(e){
+      for(var i = 0; i < file.files.length; i++){
+        var li = document.createElement("li");
+        li.innerHTML ="文件名：" + file.files[i].name +" 文件大小："+ file.files[i].size /1024 + "KB" + " 文件最后修改时间：" + file.files[i].lastModifiedDate.toDateString();
+        console.log(li.innerHTML);
+        div.appendChild(li);
+      }
+    });
+
+  </script>
+</body>
+</html>

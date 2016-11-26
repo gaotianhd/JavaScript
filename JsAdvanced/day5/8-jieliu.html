@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数节流</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      text-align: center;
+    }
+    tr,td {
+      border: 1px solid gray;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <table id="table">
+    <tbody>
+
+    </tbody>
+  </table>
+  <script type="text/javascript">
+    document.body.onclick = function(){
+      alert("click....")
+    }
+    var tbody = document.getElementById('table').children[0];
+    /*
+    //生成20000行数据
+    for (var i = 0; i < 20000; i++){
+      var tr = document.createElement("tr");
+      for (var j = 0; j < 6; j++){
+        var td = document.createElement("td");
+        td.innerHTML = i + "," + j;
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+    */
+
+
+    //节流就是分块
+    var rows = 20000;
+    var divide = 20;//总次数
+    var part = rows / divide;
+    var count = 0;
+
+    setTimeout(function createTable(){
+      for (var i = 0; i < 20000; i++){
+        var tr = document.createElement("tr");
+        for (var j = 0; j < 6; j++){
+          var td = document.createElement("td");
+          td.innerHTML = i + "," + j;
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      }
+
+      if ((++count) < divide){
+        setTimeout(createTable,1);
+      }
+    },1)
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>高阶函数</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function sum(){
+      var sum = 0;
+      Array.prototype.forEach.call(arguments,function(e,i,a){
+      sum += e;
+    });
+      return sum;
+    }
+
+    function power(a){
+      return a*a;
+    }
+
+    function compos(fn1,fn2){
+      return function(){
+        return fn1.call(null,fn2.apply(null,arguments));
+      };
+    }
+
+    var newFn = compos(power,sum);
+    console.log(newFn(1,2,3,4,5));
+  </script>
+</body>
+</html>

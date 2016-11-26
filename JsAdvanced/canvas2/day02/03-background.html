@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>绘制背景</title>
+  </head>
+  <body>
+
+    <!--不要使用css控制width，height  -->
+    <canvas id="canvas">你的浏览器不支持canvas</canvas>
+
+    <script type="text/javascript">
+      var can = document.getElementById("canvas");
+      can.width = 600;
+      can.height = 600;
+      can.style.border = "1px solid red";
+
+      //获得画布上下文对象
+      var ctx = can.getContext('2d');
+      var img = new Image();
+      img.src = "./pattern.png";
+
+      img.onload = function(e){
+
+        //createPattern进行平铺的起点为整个画布的原点
+        var pat = ctx.createPattern(img, 'repeat-x');
+        ctx.fillStyle = pat;
+
+        ctx.fillRect(100,0,300,300);
+        ctx.strokeRect(100,0,300,300);
+      }
+
+
+
+
+    </script>
+  </body>
+</html>

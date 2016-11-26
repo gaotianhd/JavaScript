@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = "600";
+    can.height = "600";
+
+    var w = 20,h = 20;
+    can.style.border = "1px solid gray";
+
+    var ctx = can.getContext('2d');
+
+    for(var i =0; i < can.width/w; i ++){
+      ctx.beginPath();
+      ctx.moveTo(i*w,0);
+      ctx.lineTo(i*w,can.height);
+      ctx.stroke();
+    }
+    for(var i =0; i < can.height/w; i ++){
+      ctx.beginPath();
+      ctx.moveTo(0,i*h);
+      ctx.lineTo(can.width,i*h);
+      ctx.stroke();
+    }
+    ctx.lineWidth = "3";
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.moveTo(100,500);
+    ctx.lineTo(500,500);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.moveTo(490,490);
+    ctx.lineTo(500,500);
+    ctx.lineTo(490,510);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.moveTo(100,500);
+    ctx.lineTo(100,100);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "red";
+    ctx.moveTo(90,110);
+    ctx.lineTo(100,100);
+    ctx.lineTo(110,110);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(100,500);
+    ctx.lineTo(140,380);
+    ctx.lineTo(220,300);
+    ctx.lineTo(260,100);
+    ctx.lineTo(300,260);
+    ctx.lineTo(420,140);
+    ctx.lineTo(460,120);
+    ctx.lineTo(500,280);
+    ctx.stroke();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>函数绑定</title>
+</head>
+<body>
+  <button id="btn">点击</button>
+  <script type="text/javascript">
+    var data = 30;
+    console.log(this.data);
+    var btn = document.getElementById("btn");
+    btn.data = 20;
+
+    var handler = {
+      data:10,
+      fn:function(e){
+        console.log(this.data);
+      }
+    }
+    handler.fn();//10
+    //方法一 === 方法二
+    //方法一
+    btn.addEventListener('click',handler.fn,false);
+    //此处的handler.fn并不是handler对象上调用fn方法，只是将handler.fn的代码作为处理函数
+
+    //方法二
+    btn.addEventListener('click',function(e){
+      console.log(this.data);
+    },false)
+
+    //方法三
+    btn.addEventListener('click',function(e){
+      handler.fn(e);//再handler对象上去调用fn方法，this指向的就是handler
+    },false)
+
+  </script>
+</body>
+</html>

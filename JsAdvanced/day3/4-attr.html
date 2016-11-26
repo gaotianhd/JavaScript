@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dataset自定义属性</title>
+</head>
+<body>
+  <div class="box" data-num='0'>0</div>
+  <div class="box" data-num='1'>1</div>
+  <script type="text/javascript">
+    var divs = document.querySelectorAll(".box");
+    divs.forEach(function(e,i,a){
+      console.log(e.getAttribute("data-num"));
+    });
+
+    divs[0].setAttribute('data-num',10);
+    divs[1].setAttribute('data-num',20);
+
+    divs[0].removeAttribute("data-num");
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>文件读取</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .upload {
+        outline-style: none;
+        display: inline-block;
+        border: none;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        margin-left: 20px;
+        background: rgba(14, 205, 16, 0.99);
+        font-size: 18px;
+        line-height: 30px;
+        color: yellow;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="file-id" type="file" style="display: none"><br>
+    <button class="upload" id="upload">上传附件</button>
+
+    <ul id='lists'></ul>
+    <script type="text/javascript">
+       var input = document.querySelector("#file-id");
+       var upload = document.querySelector('#upload');
+       var lists = document.querySelector("#lists");
+
+       upload.addEventListener('click', function(e){
+          input.click();
+       });
+
+       input.addEventListener("change", function(e){
+         var file = input.files[0];
+         var reader = new FileReader();
+
+         /* 按照文本读取
+         //开始异步的读取文件内容
+         reader.readAsText(file);
+         reader.addEventListener("load", function(e){
+          //  console.log("读取文件结束。。。。");
+          console.log(reader.result);//result就是读取的内容结果
+         });
+         */
+
+         /*按照url读取, 常用于读取图片*/
+         reader.readAsDataURL(file);
+         reader.addEventListener("load", function(e){
+          //  console.log(reader.result);
+           var img = new Image();
+           img.src = reader.result;
+           document.body.appendChild(img);
+         });
+
+
+
+       });
+    </script>
+
+  </body>
+</html>

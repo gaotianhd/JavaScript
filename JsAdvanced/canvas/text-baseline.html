@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>水平方向对齐方式</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+    var ctx = can.getContext('2d');
+    ctx.font = "30px 宋体";
+
+    ctx.beginPath();
+    ctx.strokeStyle = "green";
+    ctx.moveTo(0,200);
+    ctx.lineTo(500,200);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.fillStyle = "red";
+    ctx.font = "16px 宋体";
+    ctx.textBaseline = "alphabetic";
+    ctx.fillText("alphabetic",20,200);
+
+    ctx.beginPath();
+    ctx.textBaseline = "top";
+    ctx.fillText("top",120,200);
+
+    ctx.beginPath();
+    ctx.textBaseline = "hanging";
+    ctx.fillText("hanging",180,200);
+
+    ctx.beginPath();
+    ctx.textBaseline = "middle";
+    ctx.fillText("middle",250,200);
+
+    ctx.beginPath();
+    ctx.textBaseline = "ideographic";
+    ctx.fillText("ideographic",300,200);
+
+    ctx.beginPath();
+    ctx.textBaseline = "bottom";
+    ctx.fillText("bottom",400,200);
+
+    var l = ctx.measureText("我是中国人").width;
+    console.log(l);
+
+
+  </script>
+</body>
+</html>

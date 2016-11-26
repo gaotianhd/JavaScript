@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>绘制贝塞尔曲线</title>
+  </head>
+  <body>
+
+    <!--不要使用css控制width，height  -->
+    <canvas id="canvas">你的浏览器不支持canvas</canvas>
+
+    <script type="text/javascript">
+      var can = document.getElementById("canvas");
+      can.width = 600;
+      can.height = 600;
+      can.style.border = "1px solid red";
+
+
+      //获得画布上下文对象
+      var ctx = can.getContext('2d');
+
+      ctx.moveTo(100,30);
+      ctx.quadraticCurveTo(200, 50, 100, 100);
+      ctx.stroke();
+
+      //要连接的点
+      ctx.beginPath();
+      ctx.fillStyle = "blue";
+      ctx.fillRect(100,30,10,10);
+      ctx.fillRect(100,100,10,10);
+
+      //一个控制点
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(200,50,10,10);
+
+
+      //使用第二贝塞尔方法(支持两个控制点)
+      ctx.beginPath();
+      ctx.moveTo(300,300);
+      ctx.bezierCurveTo(400, 350, 500, 400,  300, 450);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = "blue";
+      ctx.fillRect(300,300,10,10);
+      ctx.fillRect(300,450,10,10);
+
+      ctx.beginPath();
+      ctx.fillStyle = "red";
+      ctx.fillRect(400,350,10,10);
+      ctx.fillRect(500,400,10,10);
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>终极单例模式</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      var myNameSpace = {};
+      myNameSpace.singleton = (function(){
+
+        var exist = null;
+        //实例化单例对象
+        function Singleton(){
+          var privateA = 10;
+
+          var privateGet = function(){
+            return privateA;
+          };
+
+          var privateSet = function(value){
+            privateA = value;
+          };
+
+          return {
+            publicA: 20,
+            publicSet: function(value){
+              privateSet(value);
+            },
+            publicGet: function(){
+              return privateGet();
+            }
+          };
+        }
+
+        return {
+          getInstance: function(){
+            if (!exist){
+              exist = Singleton();
+            }
+            return exist;
+          }
+        };
+      })();
+
+      //singleton 和 singleton2是同一个对象，所以变量的操作都保持一致
+      var singleton = myNameSpace.singleton.getInstance();
+      singleton.publicSet(12);
+      console.log(singleton.publicGet());
+
+      // var singleton2 = myNameSpace.singleton.getInstance();
+      // console.log(singleton.publicGet());
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

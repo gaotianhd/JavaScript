@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拖拽</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    #div-id {
+      height: 200px;
+      border: 2px solid red;
+      margin-top: 100px;
+    }
+
+    p {
+      border: 2px solid green;
+    }
+  </style>
+</head>
+<body>
+  <p draggable="true" data-num="1">我是可拖动的1</p>
+  <p draggable="true" data-num="2">我是可拖动的2</p>
+  <p draggable="true" data-num="3">我是可拖动的3</p>
+  <p draggable="true" data-num="4">我是可拖动的4</p>
+  <div id="div-id"></div>
+  <script type="text/javascript">
+    // var p = document.getElementById('p-id');
+    var ps = document.querySelectorAll("p");
+    var div = document.getElementById('div-id');
+
+    //div,属于目标区域，所以dragenter dragover dragleave
+    //拖拽进入div
+
+    ps.forEach(function(e,i,a){
+      e.addEventListener("dragstart",function(e){
+        this.style.borderColor = "yellow";
+
+        //event.dataTransfer.setData(string type,string type)
+        //设置num = data-num
+        e.dataTransfer.setData("num",this.dataset.num);
+      });
+    });
+    div.addEventListener("dragenter",function(e){
+      console.log("div drag enter...");
+      this.style.borderColor = "blue";
+    });
+
+    //拖拽在div里
+    div.addEventListener("dragover",function(e){
+      console.log("div drag over...");
+      e.preventDefault();//用于取消默认行为
+      e.stopPropagation();//阻止冒泡
+    });
+
+    //drop事件，用于接收进入目标区域内的袁术
+    // 成功拖拽文件，必须处理dragover事件，取消默认行为
+    div.addEventListener("drop",function(e){
+      console.log("div drop...");
+      //event.dataTransfer.getData(string type)
+      var data = e.dataTransfer.getData("num");
+      //"p[data-num='1']"
+      //注意属性值必须使用引号包含
+      this.appendChild(document.querySelector('p[data-num="' + data + '"]'));
+    });
+  </script>
+</body>
+</html>

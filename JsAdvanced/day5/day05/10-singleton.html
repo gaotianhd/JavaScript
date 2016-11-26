@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>单例模式</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    // 最简单的单例模式
+       var singleton = {
+         value:10,
+         set: function(data){
+           this.value = data;
+         },
+         get: function(){
+           return this.data;
+         }
+       };
+
+
+      //通过闭包创建包含私有成员的单例对象
+      var myNameSpace = {};
+      myNameSpace.singleton = (function(){
+         var privateA = 10;
+
+         var privateGet = function(){
+           return privateA;
+         };
+
+         var privateSet = function(value){
+           privateA = value;
+         };
+
+         return {
+           publicA: 20,
+           publicSet: function(value){
+             privateSet(value);
+           },
+           publicGet: function(){
+             return privateGet();
+           }
+         };
+      })();
+
+      console.log(myNameSpace.singleton);
+
+      myNameSpace.singleton.publicSet(15);
+      console.log(myNameSpace.singleton.publicGet());
+
+
+      
+
+    </script>
+
+  </body>
+</html>

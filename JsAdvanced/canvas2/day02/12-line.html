@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>线样式</title>
+  </head>
+  <body>
+
+    <!--不要使用css控制width，height  -->
+    <canvas id="canvas">你的浏览器不支持canvas</canvas>
+    <canvas id="canvas-1">你的浏览器不支持canvas</canvas>
+
+    <script type="text/javascript">
+      var can = document.getElementById("canvas");
+      var can1 = document.getElementById("canvas-1");
+
+      can.width = 500;
+      can.height = 500;
+      can.style.border = "1px solid red";
+
+      can1.width = 800;
+      can1.height = 500;
+      can1.style.border = "1px solid red";
+
+      //获得画布上下文对象
+      var ctx = can.getContext('2d');
+      var ctx1 = can1.getContext('2d');
+
+      ctx.strokeStyle = "red";
+      ctx.moveTo(100, 0);
+      ctx.lineTo(100, 500);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 50;
+      ctx.moveTo(100, 30);
+      ctx.lineTo(400, 30);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineCap = "round";
+      ctx.moveTo(100, 100);
+      ctx.lineTo(400, 100);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineCap = "square";
+      ctx.moveTo(100, 160);
+      ctx.lineTo(400, 160);
+      ctx.stroke();
+
+
+
+      //线条拐角样式
+      ctx1.lineWidth = 30;
+      ctx1.strokeStyle = "black";
+      ctx1.moveTo(30,30);
+      ctx1.lineTo(200,200);
+      ctx1.lineTo(30, 300);
+      ctx1.stroke();
+
+      ctx1.beginPath();
+      ctx1.lineJoin = "round";
+      ctx1.moveTo(300,30);
+      ctx1.lineTo(400,200);
+      ctx1.lineTo(200, 300);
+      ctx1.stroke();
+
+      ctx1.beginPath();
+      ctx1.lineJoin = "bevel";
+      ctx1.moveTo(500,30);
+      ctx1.lineTo(600,200);
+      ctx1.lineTo(400, 300);
+      ctx1.stroke();
+
+
+
+      </script>
+  </body>
+</html>

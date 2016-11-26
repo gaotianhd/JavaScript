@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .upload{
+      outline-style: none;
+      display: inline-block;
+      border: none;
+      width: 100px;
+      height: 30px;
+      border-radius: 5px;
+      margin-left: 20px;
+      background-color: lightgreen;
+      font-size: 18px;
+      line-height: 30px;
+      color: yellow;
+      cursor: pointer;;
+    }
+    table{
+
+    }
+    th{
+      border: 1px solid black;
+      padding: 10px;
+    }
+    td{
+      padding: 10px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" id="file" multiple style="display:none">
+  <button class="upload" id="upload">上传附件</button>
+  <table id="lists" border="1">
+
+  </table>
+  <script type="text/javascript">
+    var input = document.querySelector("#file");
+    var upload = document.querySelector("#upload");
+    var lists = document.querySelector("#lists");
+
+    upload.addEventListener('click',function(e){
+      input.click();
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<th>文件名</th><th>文件大小</th><th>文件最后修改时间</th>"
+      lists.appendChild(tr);
+    });
+    input.addEventListener('change',function(e){
+      for(var i = 0; i < file.files.length; i++){
+        var f = file.files;
+        var td = document.createElement("tr");
+        td.innerHTML = "<td>"+ f[i].name +"</td>"+ "<td>"+ f[i].size/1024 +"KB</td>"+"<td>"+f[i].lastModifiedDate.toDateString()+"</td>";
+        // console.log(li.innerHTML);
+        lists.appendChild(td);
+      }
+    });
+  </script>
+</body>
+</html>

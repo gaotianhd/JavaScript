@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>拖拽</title>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+      #div-id {
+        height: 200px;
+        border: 2px solid red;
+        margin-top: 100px;
+      }
+
+      p {
+        border: 2px solid green;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p  draggable="true"  data-num='1'>拖动元素 p1</p>
+    <p  draggable="true" data-num='2'>拖动元素 p2</p>
+    <p  draggable="true" data-num='3'>拖动元素 p3</p>
+    <p  draggable="true" data-num='4'>拖动元素 p4</p>
+    <div id="div-id"></div>
+
+    <script type="text/javascript">
+       var ps = document.querySelectorAll("p[draggable='true']");
+       var div  = document.getElementById("div-id");
+
+
+       /*
+       //使用全局变量的方法进行拖动
+       var currentDragElem = null;
+       //给所有的p添加dragstart事件
+       ps.forEach(function(e, i, a){
+         e.addEventListener("dragstart", function(e){
+           this.style.borderColor = "yellow";
+           currentDragElem = this;
+         });
+       });
+       */
+
+       ps.forEach(function(e, i, a){
+         e.addEventListener("dragstart", function(e){
+           this.style.borderColor = "yellow";
+
+           //event.dataTransfer.setData(string type, string data);
+           //设置num=data-num
+           e.dataTransfer.setData("num", this.dataset.num);
+          //  e.dataTransfer.setData("name", "lisi");
+         });
+       });
+
+       //div，属于目标区域，所以 dragenter dragover dragleave
+       div.addEventListener('dragenter', function(e){
+         console.log('div  drag enter ....');
+         this.style.borderColor = "blue";
+       });
+
+       div.addEventListener('dragover', function(e){
+         console.log('div  drag over ....');
+         e.preventDefault();//取消默认行为
+         e.stopPropagation();//停止冒泡
+       });
+
+       //drop事件，用于接收进入目标区域内的元素
+       //成功拖动文件，必须处理dragover事件,取消默认行为
+       div.addEventListener('drop', function(e){
+         console.log('div  drop ....');
+        //  this.appendChild(currentDragElem);
+
+        //event.dataTransfer.getData(string type)
+        var data = e.dataTransfer.getData("num");
+        // "p[data-num='1']"
+        //注意属性值必须使用引号包含!!!!!!!
+        this.appendChild(document.querySelector('p[data-num="' + data +  '"]'));
+        // console.log(e.dataTransfer.getData('name'));
+        //e.dataTransfer.clearData('name');
+       });
+
+    </script>
+
+
+
+  </body>
+</html>

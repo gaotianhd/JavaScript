@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>线性渐变</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var ctx = can.getContext('2d');
+    var color = ctx.createLinearGradient(0,0,200,0);
+    //添加颜色渐变的范围
+    color.addColorStop(0,"red");
+    color.addColorStop(0.5,"blue");
+    color.addColorStop(1,"yellow");
+    ctx.fillStyle = color;
+    //创建的渐变对象的坐标和将来使用的坐标必须保持一致的，否则无效
+    ctx.fillRect(0,0,200,100);
+    //不完全的渐变颜色
+    // ctx.fillRect(100,150,200,100);
+    // ctx.fillRect(300,300,200,50);
+
+    var color1 = ctx.createLinearGradient(200,200,400,200);
+    color1.addColorStop(0,"pink");
+    color1.addColorStop(0.5,"red");
+    color1.addColorStop(1,"black");
+
+    ctx.strokeStyle = color1;
+    //绘制直线也必须一致
+    ctx.moveTo(200,200);
+    ctx.lineTo(400,200);
+    ctx.lineWidth = 20;
+    ctx.stroke();
+  </script>
+</body>
+</html>

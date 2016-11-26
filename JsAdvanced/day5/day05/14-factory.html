@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>工厂模式</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      function Xiaomi(){
+        this.vendor = "xiaomi";
+      }
+
+      function Huawei(){
+        this.vendor = "huawei";
+      }
+
+      function Apple(){
+        this.vendor = "apple";
+      }
+
+      function Samsung(){
+        this.vendor = "samsung";
+      }
+
+      //将PhoneShop作为基类
+      function PhoneShop(){
+      }
+      PhoneShop.prototype = {
+        constructor: PhoneShop,
+        sellPhone: function(mode){
+          return this.createPhone(mode);
+        },
+        createPhone: function(mode){
+          throw new Error("it is a abstract function");
+        }
+      };
+
+      //用于实现原型方法和属性的继承功能
+      function inherit(sup, sub){
+          function F(){};
+          F.prototype = sup.prototype;
+          sub.prototype = new F();
+          sub.constructor = sub;
+      }
+
+      //基于PhoneShop的派生类
+      function OneShop(){
+        PhoneShop.call(this);
+      }
+
+      inherit(PhoneShop, OneShop);
+
+      OneShop.prototype.createPhone = function(mode){
+        var phone;
+        switch (mode){
+          case "xiaomi":
+          phone = new Xiaomi();
+          break;
+
+          case "huawei":
+          phone = new Huawei();
+          break;
+
+          case "apple":
+          phone = new Apple();
+          break;
+
+          case "samsung":
+          phone = new Samsung();
+          break;
+
+          default:
+          phone = new Xiaomi();
+          break;
+        }
+        return phone;
+      };
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>写字</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+    var ctx = can.getContext('2d');
+    ctx.font = "30px 宋体";
+    ctx.fillStyle = "red";
+    ctx.strokeStyle = "blue";
+    ctx.fillText("我喜欢钱",100,100);
+    ctx.strokeText("我喜欢钱",100,200);
+
+  </script>
+</body>
+</html>

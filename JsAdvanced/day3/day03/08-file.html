@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>文件操作</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+        width: 500px;
+      }
+
+      li {
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+        border-bottom: 1px dotted gray;
+      }
+
+      .upload {
+        outline-style: none;
+        display: inline-block;
+        border: none;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        margin-left: 20px;
+        background: rgba(14, 205, 16, 0.99);
+        font-size: 18px;
+        line-height: 30px;
+        color: yellow;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="file-id" type="file" multiple style="display: none"><br>
+    <button class="upload" id="upload">上传附件</button>
+
+    <ul id='lists'></ul>
+    <script type="text/javascript">
+       var input = document.querySelector("#file-id");
+       var upload = document.querySelector('#upload');
+       var lists = document.querySelector("#lists");
+
+       upload.addEventListener('click', function(e){
+          input.click();
+       });
+
+       input.addEventListener("change", function(e){
+         for (var i = 0; i < input.files.length; i++){
+            var file = input.files[i];
+            var li = document.createElement("li");
+            li.innerHTML = file.name  + " " + file.size / 1024 + "KB " + file.lastModifiedDate.toDateString();
+            lists.appendChild(li);
+          }
+       });
+
+
+
+    </script>
+
+  </body>
+</html>

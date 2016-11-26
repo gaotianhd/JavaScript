@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>嵌套的错误处理</title>
+</head>
+<body>
+  <script type="text/javascript">
+  try{
+    try{
+      var err = new Error("oops");
+      // 抛出一个错误
+      throw err;
+    }
+    catch(e){
+      console.log("inner error = ", e.message);
+      /*
+       错误是可以向外传递的，如果内部没有错误捕获语句，
+       那么错误会继续向外传输，直到有catch 捕获语句
+      */
+    }
+    finally{
+      console.log("in inner  finally ...");
+    }
+  }
+  catch(ex){
+      console.log("outer error = ", ex.message);
+  }
+  finally {
+    console.log("in outer finally ...");
+  }
+
+  console.log("after outer finally ...");
+  </script>
+</body>
+</html>

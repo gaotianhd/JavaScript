@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>扇形分布图</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+  var can = document.getElementById("canvas");
+  can.width = 500;
+  can.height = 500;
+  can.style.border = "1px solid red";
+
+  var ctx = can.getContext('2d');
+
+  var data = [
+    {
+      'value':0.4,
+      'color':"red",
+      'country':"中国"
+    },
+    {
+      'value':0.2,
+      'color':"blue",
+      'country':"美国"
+    },
+    {
+      'value':0.3,
+      'color':"pink",
+      'country':"韩国"
+    },
+    {
+      'value':0.1,
+      'color':"green",
+      'country':"日本"
+    },
+  ];
+  var beginAngle = endAngle = 0;
+  for(var i = 0; i < data.length; i ++){
+    ctx.beginPath();
+    ctx.moveTo(250,250);
+    ctx.fillStyle = data[i].color;
+    endAngle +=360 * data[i].value;
+    ctx.arc(250,250,100,beginAngle * Math.PI/180,endAngle * Math.PI/180);
+    ctx.fill();
+    //填充文本
+    var textAngle = beginAngle + 360 * data[i].value / 2;
+    //文本的x，y坐标
+    var textX = 250 + 120 * Math.cos(textAngle * Math.PI / 180);
+    var textY = 250 + 120 * Math.sin(textAngle * Math.PI / 180);
+
+    ctx.fillText(data[i].country + data[i].value * 100 + "%",textX,textY);
+    beginAngle = endAngle;
+  }
+  </script>
+</body>
+</html>

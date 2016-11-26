@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+     //计算总价
+     function count(num, price){
+       var ret = 1;
+       var arg = Array.prototype.slice.call(arguments);
+       arg.forEach(function(e,i,a){
+         ret *= e;
+       });
+
+       return ret;
+     }
+
+     /*
+     fn: 要封装的函数
+     rate: 打折比例
+     */
+     function curry(fn, rate){
+       var preArgs = Array.prototype.slice.call(arguments, 1);
+       return function(){
+         var arg = preArgs.concat(Array.prototype.slice.call(arguments));
+         return fn.apply(null, arg);
+       };
+     }
+
+     var newFn = curry(count, 0.8);
+     console.log(newFn(100,10));
+
+
+
+
+
+
+    </script>
+
+
+  </body>
+</html>

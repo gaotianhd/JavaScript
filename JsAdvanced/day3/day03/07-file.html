@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>文件操作</title>
+  </head>
+  <body>
+    <input id="file-id" type="file" multiple><br>
+    <button id='btn'>点击获得文件详细信息</button>
+
+    <script type="text/javascript">
+       var input = document.querySelector("#file-id");
+       var btn = document.querySelector('#btn');
+
+       btn.addEventListener('click', function(e){
+          for (var i = 0; i < input.files.length; i++){
+            console.log(input.files[i].name, input.files[i].size,
+              input.files[i].lastModifiedDate.toDateString());
+          }
+       });
+
+
+
+    </script>
+
+  </body>
+</html>

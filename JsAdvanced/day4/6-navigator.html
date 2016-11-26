@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>navigator属性</title>
+</head>
+<body>
+  <script type="text/javascript">
+    console.log(navigator.vendor);
+    console.log(navigator.userAgent);
+    console.log(navigator.userLanguage);//不支持了
+    console.log(navigator.platform);
+
+    var plugins = navigator.plugins;//安装的插件
+    for(var i=0;i<plugins.length;i++){
+      console.log(plugins[i].name);
+    }
+  </script>
+</body>
+</html>

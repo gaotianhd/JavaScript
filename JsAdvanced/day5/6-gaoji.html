@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>高阶函数</title>
+</head>
+<body>
+  <script type="text/javascript">
+    //高阶函数：利用函数生成函数
+
+    function even(num){
+      return (num % 2) == 0;
+    }
+
+    function not(fn){
+      return function(){
+        var ret = fn.apply(null,arguments);
+        return !ret;
+      };
+    }
+
+    //odd是判断奇数的方法
+    var odd = not(even);
+    console.log(odd);
+    var ret = [2,4,6,8,10].every(even);
+    console.log(ret);
+
+    var ret1 = [1,3,5,7,9].every(odd);
+    console.log(ret1);
+  </script>
+</body>
+</html>

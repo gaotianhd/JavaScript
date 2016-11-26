@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>将图片显示在画布上</title>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <button>font</button>
+    <button>back</button>
+    <button>left</button>
+    <button>right</button>
+
+    <script type="text/javascript">
+      var btns = document.getElementsByTagName("button");
+      var can = document.getElementById("canvas");
+      can.width = 600;
+      can.height = 600;
+      can.style.border = "1px solid red";
+
+      var ctx = can.getContext('2d');
+      //绘制图片时，必须在图片加载完毕之后才可以
+
+      var img = new Image(160,260);
+      img.src = "./animate.png";
+
+      //裁剪的坐标
+      var x = 0, y = 0;
+
+      img.onload = function(e){
+        //一个小人的宽，高
+        var w = img.width / 4 , h = img.height / 4;
+        setInterval(function(){
+          can.width = can.height = 600;
+          ctx.drawImage(img, x * w,  y * h, w, h, 250,200, w * 2, h * 2);
+          x++;
+          x %= 4;
+        }, 50);
+
+        btns[0].onclick = function(e){
+          y = 0;
+        };
+
+        btns[1].onclick = function(e){
+          y = 3;
+        };
+
+        btns[2].onclick = function(e){
+          y = 1;
+        };
+
+        btns[3].onclick = function(e){
+          y = 2;
+        };
+
+
+
+
+      };
+    </script>
+  </body>
+</html>

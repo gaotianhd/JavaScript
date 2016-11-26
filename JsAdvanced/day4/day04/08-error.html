@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+       /*
+       console.log("try .. catch...");
+       consol.log("error ....");
+       console.log("after error ... ");
+       */
+
+       var a = 10, b = 0;
+
+
+       try{
+         var c =  a / b;
+         console.log(c);
+         //Reference Error
+        //  fun();
+
+        //TyepError
+         var value = "string".toFixed(2) ;
+       } catch(e){
+         //直接输出错误信息
+         console.log("error=", e.message);
+       }finally{
+         console.log("in finally ....");
+       }
+
+       console.log('after  fun ....');
+
+    </script>
+
+  </body>
+</html>

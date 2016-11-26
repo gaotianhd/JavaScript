@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>上下文的基本操作</title>
+</head>
+<body>
+
+  <!-- 不要使用css控制width，height -->
+  <canvas id="canvas">你的浏览器不支持canvas</canvas>
+  <script type="text/javascript">
+
+    var can = document.getElementById('canvas');
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    // 获得画布的上下文对象
+    var ctx = can.getContext('2d');
+    ctx.strokeStyle = "blue";//设置描边的颜色
+    var w = 50,h = 50;
+    for(var i = 1;i < can.width/w; i++ ){
+      ctx.beginPath();
+      ctx.moveTo(i * w, 0);
+      ctx.lineTo(i * w, can.height);
+      ctx.stroke();
+    }
+    for(var i = 1;i < can.height/w; i++ ){
+      ctx.beginPath();
+      ctx.moveTo(0, i * h);
+      ctx.lineTo(can.width, i * h);
+      ctx.stroke();
+    }
+
+  </script>
+</body>
+</html>

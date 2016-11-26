@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>画布透明度</title>
+  </head>
+  <body>
+
+    <!--不要使用css控制width，height  -->
+    <canvas id="canvas">你的浏览器不支持canvas</canvas>
+
+    <script type="text/javascript">
+      var can = document.getElementById("canvas");
+      can.width = 600;
+      can.height = 600;
+      can.style.border = "1px solid red";
+
+
+      //获得画布上下文对象
+      var ctx = can.getContext('2d');
+
+      ctx.fillStyle = '#FD0';
+      ctx.fillRect(0,0,75,75);
+
+      ctx.fillStyle = '#6C0';
+      ctx.fillRect(75,0,75,75);
+
+      ctx.fillStyle = '#09F';
+      ctx.fillRect(0,75,75,75);
+
+      ctx.fillStyle = '#F30';
+      ctx.fillRect(75,75,75,75);
+
+      ctx.fillStyle = '#FFF';
+
+      ctx.globalAlpha = 0.2;
+      for (i=0;i<7;i++){
+        ctx.beginPath();
+        ctx.arc(75,75,10+10*i,0,Math.PI*2,true);
+        ctx.fill();
+      }
+
+      //globalAlpha可以进行多次设置，但是每次设置只会影响后续的操作
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = 'rgb(231, 229, 23)';
+      ctx.fillRect(200,200,100,100);
+
+      </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>localStorage 使用</title>
+  </head>
+  <body>
+    <textarea id="text" rows="8" cols="40"></textarea><br>
+    <textarea id="text-1" rows="8" cols="40"></textarea><br>
+    <button id='btn-1' >点击保存值</button>
+    <button id='btn-2' >点击获得值</button>
+    <button id='btn-4' >点击删除值</button>
+    <button id='btn-3' >点击清空文本区域</button>
+
+    <script type="text/javascript">
+       var text = document.getElementById("text");
+       var text1 = document.getElementById("text-1");
+       var btnSet = document.getElementById("btn-1");
+       var btnGet = document.getElementById("btn-2");
+       var btnDel = document.getElementById("btn-4");
+       var clearText = document.getElementById("btn-3");
+
+       if(window.localStorage){
+         console.log(true);
+       }else {
+         console.log(false);
+       }
+
+       if (window.localStorage.getItem('text')){
+         text.value = text1.value = window.localStorage.getItem('text');
+       }
+
+
+       //值得设置使用的是键值对的方式
+       btnSet.addEventListener("click", function(e){
+         //其中text为自定义的键
+          // window.localStorage.text = text.value;
+          window.localStorage.setItem('text', text.value);
+
+          console.log(window.localStorage.length);
+          console.log(window.localStorage.key(0));
+       });
+
+       btnGet.addEventListener("click", function(e){
+         //访问自定义的键获得值
+         if (window.localStorage.text){
+          //  text1.value = window.localStorage.text;
+           text1.value = window.localStorage.getItem('text');
+         }
+       });
+
+       btnDel.addEventListener("click", function(e){
+        //  window.localStorage.clear();
+         window.localStorage.removeItem('text');
+       });
+
+       clearText.addEventListener("click", function(e){
+         text1.value = text.value = "";
+       });
+
+    </script>
+
+  </body>
+</html>

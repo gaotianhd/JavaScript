@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dataset的应用</title>
+  </head>
+  <body>
+    <div class="box" data-num='0' data-test-attr='one'>0</div>
+    <div class="box" data-num='1' data-test-attr='two'>1</div>
+
+    <script type="text/javascript">
+       var divs = document.querySelectorAll(".box");
+       divs.forEach(function(e,i,a){
+        //  console.log(e.dataset.num);
+        //访问dataset的属性时，必须符合驼峰法的规则
+          console.log(e.dataset.testAttr);
+       });
+
+       //修改值
+       divs[0].dataset.num = 10;
+       //添加值
+       divs[0].dataset.id = '0'; //产生一个data-id='0'
+
+    </script>
+
+
+  </body>
+</html>

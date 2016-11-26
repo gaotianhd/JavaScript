@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>画布旋转</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script type="text/javascript">
+  var can = document.getElementById("canvas");
+  can.width = 600;
+  can.height = 600;
+  can.style.border = "1px solid red";
+
+  //获得画布上下文对象
+  var ctx = can.getContext('2d');
+
+  //每一次rotate都影响后续的绘制
+  ctx.rotate(10*Math.PI/180);
+  ctx.lineWidth = 4;
+  ctx.strokeStyle = "blue";
+  ctx.strokeRect(100,100,100,100);
+
+  ctx.beginPath();
+  ctx.strokeStyle = "yellow";
+  ctx.strokeRect(300,300,100,100);
+
+  ctx.rotate(30 * Math.PI / 180);
+
+  ctx.beginPath();
+  ctx.strokeStyle = "purple";
+  ctx.strokeRect(200,200,100,100);
+  </script>
+</body>
+</html>

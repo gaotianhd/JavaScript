@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>location对象</title>
+  </head>
+  <body>
+
+    <h1>location 对象</h1>
+
+    <script type="text/javascript">
+      console.log('location.host', location.host);
+      console.log('location.hostname', location.hostname);
+      console.log('location.port', location.port);
+
+      console.log('location.protocol', location.protocol);
+      console.log('location.search', location.search);
+      console.log('location.hash', location.hash);
+      console.log('location.href', location.href);
+
+      //更改任意一个location的属性，都会刷新当前页面
+      /*
+      setTimeout(function(){
+        location.hash = '#12345';
+      },5000);
+      */
+
+      // 重新加载页面
+      // location.reload(true);
+
+
+      setTimeout(function(){
+        //支持浏览器回退功能的
+        // location.assign("https://www.baidu.com");
+        // window.location = "http://www.jd.com"
+
+        //不支持回退功能
+        location.replace("https://www.baidu.com");
+      }, 2000);
+
+      //浏览器上没有回退功能
+      // location.href = "https://www.tmall.com";
+
+    </script>
+
+  </body>
+</html>
