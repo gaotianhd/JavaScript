@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scroll.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100%;
+            position: relative;
+        }
+
+        .s {
+            width: 120px;
+            height: 270px;
+            position: absolute;
+            top: 100px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <img src="./image/mi.png" alt="">
+  <div class="s" id="s-id"><img src="./image/1.jpg" alt=""></div>
+</div>
+
+<script>
+
+    var current = 0;
+    var s = document.getElementById("s-id");
+    var rawOffsetTop = s.offsetTop;
+//    console.log(rawOffsetTop);
+
+    window.onscroll = function () {
+        current = scroll().top;
+        move(s, rawOffsetTop + current);
+    };
+
+    //由快到慢运动
+    function move(obj, target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function(){
+            var speed = (target - obj.offsetTop) / 10;
+            speed = speed > 0 ? Math.ceil(speed): Math.floor(speed);
+
+            obj.style.top = obj.offsetTop + speed + "px";
+            if (obj.offsetTop == target) {
+                clearInterval(obj.timer);
+                return;
+            }
+        }, 50);
+    }
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

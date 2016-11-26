@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+
+<script>
+
+    // "两个 // 之间的内容为正则表达式要匹配的内容"
+    var pat = /test/g;
+    console.log(typeof pat);//object，对象类型
+
+    var pat1 = new RegExp(/test/, 'g');
+    console.log(typeof pat1);//object，对象类型
+
+    pat1 = new RegExp("test", 'g');
+    console.log(typeof pat1);//object，对象类型
+
+    /*
+    * 正则表达式中的 g， i, m的功能
+    * g： global 进行全局匹配
+    * i： ignorecase 忽略大小写的匹配
+    * m: multiple  进行多行匹配
+     */
+
+/*    pat = /hello/;
+    var a = "skjgkdhellohelloHELLOjkgjdkgjdgjd\n" +  "sdjgjdkghellojdkjkdjhkjdkhdk\n" + "ghellojdlgjdjgkdhkj";
+    console.log(a);*/
+
+
+
+
+</script>
+</body>
+</html>

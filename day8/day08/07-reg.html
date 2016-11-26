@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则方法</title>
+</head>
+<body>
+
+<script>
+    var str = "hello World google";
+
+    //正则表达式有方法test()
+    console.log(/hello/g.test(str));
+    console.log(/world/.test(str));
+    console.log(/me/.test(str));
+    console.log(/[a-z]/.test(str));
+    console.log(/[A-Z]/.test(str));
+    console.log(/[0-9]/.test(str));//false
+    console.log(/[^abcd]/.test("abcdabcd"));//false
+
+
+    console.log("------------reg.exec()-------------");
+    var re = /quick\s(brown).+?(jumps)/ig;
+
+/*    //执行exec方法进行匹配, 返回数组result
+    var result = re.exec("the  Quick Brown Fox Jumps askjgkd sjgkdjhkh  Quick Brown Fox Jumps   ");
+    console.log(result[0]);
+    console.log(result[1]);
+    console.log(result[2]);
+//    console.log(result[3]);//访问没有的，undefined
+    console.log(result.index);//5, 其实的索引值
+    console.log("[" + result.input + "]");// 源字符串*/
+
+
+    //返回值不为null时，执行, 使用exec的循环调用访问，可以对正则表达时进行全局的匹配
+    while (result = re.exec("the  Quick Brown Fox Jumps askjgkd sjgkdjhkh  Quick Brown Fox Jumps   sjgjgk  Quick Brown Fox Jumps  ")) {
+        console.log(result.index);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

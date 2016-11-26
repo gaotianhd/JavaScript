@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scroll.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body,html{
+            height: 100%;
+        }
+
+        .ul-1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ul-1 li {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ul-2 {
+            position: fixed;
+            top: 300px;
+            left: 20px;
+        }
+
+        .ul-2 li {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<ul class="ul-1" id="u1-id">
+    <li>第一屏</li>
+    <li>第二屏</li>
+    <li>第三屏</li>
+    <li>第四屏</li>
+</ul>
+
+<ul class="ul-2" id="u2-id">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+</ul>
+
+
+<script>
+
+    var colors = ["red", "blue", "green", "pink"];
+    var u1 = document.getElementById("u1-id");
+    var u2 = document.getElementById("u2-id");
+
+    var l1s = u1.children;
+    var l2s = u2.children;
+    var sHeight = l1s[1].offsetTop;
+
+//     一屏幕的高度
+    //  console.log(l1s[1].offsetTop);
+
+    var current = 0; //此变量用于保存当前纵向拖动条的值
+    var timer = null;// 定义全局的定时器，用于保证只有一个定时器有效
+
+    for (var i = 0; i < l1s.length; i++){
+        l1s[i].style.backgroundColor = colors[i];
+        l2s[i].style.backgroundColor = colors[i];
+
+        l2s[i].index = i;
+
+        l2s[i].onclick = function () {
+            var target = this.index * sHeight;//得到当前颜色的屏幕距离body最顶部的距离
+            move(target);
+        };
+    }
+
+
+    window.onscroll = function () {
+      current =  scroll().top;
+    };
+
+    //target参数表示的是当前的盒子距离父盒子顶部的距离，offsetTop
+    function move(target){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            var speed = (target - current ) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            current += speed;
+
+            //用于进行屏幕的滚动
+            window.scrollTo(0, current);
+
+            if ( target == current ) {
+                clearInterval(timer);
+            }
+        }, 30);
+    }
+
+</script>
+</body>
+</html>

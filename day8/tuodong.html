@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拖动条</title>
+  <script src="./day08/scroll.js"></script>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    /*html,body{
+      width: 100%;
+      height: 100%;
+    }*/
+    .box{
+      width: 210px;
+      height: 10px;
+      position: relative;
+      margin: 100px auto;
+      background: pink;
+      border-radius: 5px;
+    }
+    .move{
+      width: 10px;
+      height: 20px;
+      background: blue;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -10px;
+      border-radius: 5px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    .span{
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      position: absolute;
+      top: -2px;
+      right: -10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div id="box" class="box">
+      <div id="move" class="move"></div>
+      <span id="shu" class="span">2342423</span>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var box = document.getElementById('box');
+    var move = document.getElementById('move');
+    var txt = document.getElementById('shu');
+
+    move.onmousedown = function(event){
+      document.onmousemove = function(event){
+        event = event || window.event;
+        var box_left = box.offsetLeft;
+        // console.log(event.pageX);
+        var pageX = event.pageX || event.clientX + scroll().left;
+        var x = pageX - box_left - move.offsetWidth / 2;
+        if (x <= 0){
+          x =0;
+        }else if (x >= box.offsetWidth - move.offsetWidth){
+          x = box.offsetWidth - move.offsetWidth;
+        }
+        move.style.left = x + 'px';
+        txt.innerHTML = x / 2 + '%';
+
+      };
+    };
+    document.onmouseup = function(){
+      document.onmousemove = null;
+    };
+  </script>
+</body>
+</html>
