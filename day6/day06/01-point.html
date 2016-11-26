@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动生成小圆点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box {
+            width: 730px;
+            height: 454px;
+            margin: 50px auto;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        .box li {
+            display: none;
+        }
+
+        .box li.current {
+            display: block;
+        }
+        
+        .point {
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
+        }
+
+        .point span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: gray;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .point span.current {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="image" id="img-id">
+        <ul>
+            <li><img src="./images/11.jpg" alt=""></li>
+            <li><img src="./images/22.jpg" alt=""></li>
+            <li><img src="./images/33.jpg" alt=""></li>
+            <li><img src="./images/44.jpg" alt=""></li>
+            <li><img src="./images/55.jpg" alt=""></li>
+            <li><img src="./images/66.jpg" alt=""></li>
+        </ul>
+    </div>
+    <div class="point" id="point-id"></div>
+</div>
+
+
+<script>
+    var imgId = document.getElementById("img-id");
+    var lis = imgId.children[0].children;
+    var pointId = document.getElementById("point-id");
+
+    lis[0].className = "current";
+
+    for (var i = 0; i < lis.length; i++){
+        var s = document.createElement("span");
+        s.innerHTML = i + 1 + "";
+        pointId.appendChild(s);
+    }
+
+    var spans = pointId.children;
+    for ( var i = 0; i < spans.length; i++){
+
+        spans[i].index = i;
+        spans[i].onclick = function () {
+            for (var j = 0; j < spans.length; j++){
+                spans[j].className = "";
+                lis[j].className = "";
+            }
+
+            this.className = "current";
+            lis[this.index].className = "current";
+        };
+    }
+
+
+
+
+</script>
+
+
+</body>
+</html>

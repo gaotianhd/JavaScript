@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .sec {
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            text-align: center;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sec" id="time"></div>
+
+<script>
+
+
+/*    //只执行了一次
+    setTimeout(function(){
+        console.log("setTimeout ...");
+    },1000);//大概1000ms之后执行回调函数*/
+
+    var d = document.getElementById("time");
+    var num = 10;
+    var timer = null;
+
+    outTime();
+
+    function outTime(){
+        num--;
+        if (num < 0){
+            clearTimeout(timer);//取消setTimeout设置的定时器
+            return ;
+        } else {
+            d.innerHTML = num;
+
+            //arguments.callee代表的就是当前正在执行的函数本身
+            timer = setTimeout(arguments.callee, 1000);
+        }
+    }
+
+</script>
+
+</body>
+</html>

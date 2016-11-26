@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var d = Math.min(2,3,4,1.1,2.3, -1);
+    console.log(d);
+
+    d = Math.max(1,100,20,-5);
+    console.log(d);
+
+    var a = [1,2,3,4,5,10];
+
+    //apply，用于将一个方法绑定到指定的对象上去执行，并且使用数组传参数
+    d = Math.min.apply(Math, a);  //===> Math.min(1,2,3,4,5,10);
+    console.log(d);
+
+    console.log("------舍入------");
+    console.log(Math.ceil(1.6));
+    console.log(Math.floor(1.6));
+    console.log(Math.round(1.6));
+
+    for (var i = 0; i < 10; i++){
+        console.log(Math.random());
+    }
+
+
+    //[2,11], 需要2-11之间的随机数，可能数值有10个
+    for (var i = 0; i < 10; i++){
+        console.log(Math.floor(Math.random() * 10 + 2));
+    }
+
+
+    var colors = ["red", "yellow", "green", "pink", "black", "blue"];
+
+
+
+
+
+</script>
+
+</body>
+</html>

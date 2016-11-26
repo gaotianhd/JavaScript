@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>时钟</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 600px;
+      height: 600px;
+      background: url("./clock/clock.jpg");
+      margin: 100px auto;
+      position: relative;
+    }
+    .box div{
+      width: 30px;
+      height: 600px;
+      position: absolute;
+      left: 50%;
+      margin-left: -15px;
+    }
+    .box .hour{
+      background: url("./clock/hour.png");
+    }
+    .box .minute{
+      background: url("./clock/minute.png");
+    }
+    .box .second{
+      background: url("./clock/second.png");
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div id="hour" class="hour"></div>
+    <div id="minute" class="minute"></div>
+    <div id="second" class="second"></div>
+  </div>
+  <script type="text/javascript">
+  var h = document.getElementById('hour');
+  var m = document.getElementById('minute');
+  var s = document.getElementById('second');
+
+  var timer = null;
+  timer = setInterval(fn,50);
+
+  function fn(){
+    var d = new Date();
+    var mills = d.getMilliseconds();
+    var sec = d.getSeconds() + mills / 1000;
+    var min = d.getMinutes() + sec / 60;
+    var hour = d.getHours() + min / 60;
+
+    h.style.WebkitTransform = "rotate(" + hour * 30 + "deg)";
+    m.style.WebkitTransform = "rotate("+min * 6+"deg)";
+    s.style.WebkitTransform = "rotate("+sec * 6+"deg)";
+  }
+  </script>
+</body>
+</html>

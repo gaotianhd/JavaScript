@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数学相关</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var d = Math.min(2,3,4,1,2,-1);
+    console.log(d);
+
+    d = Math.max(1,100,20,-5);
+    console.log(d);
+
+    var a = [1,2,3,4,5,10];
+
+    d = Math.min.apply(Math,a);
+    console.log(d);
+
+    console.log("-----舍入-----");
+    console.log(Math.ceil(1.6));
+    console.log(Math.floor(1.6));
+    console.log(Math.round(1.6));
+
+    for(var i = 0; i < 10; i ++){
+      console.log(Math.random());
+    }
+
+    //[2,11], 需要2-11之间的随机数，可能数值有10个
+    for (var i = 0; i < 10; i++){
+        console.log(Math.floor(Math.random() * 10 + 2));
+    }
+
+    var colors = ["red", "yellow", "green", "pink", "black", "blue"];
+
+  </script>
+</body>
+</html>

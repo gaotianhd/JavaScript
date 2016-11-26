@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style>
+        .sec {
+            width: 100px;
+            height: 100px;
+            background: deeppink;
+            text-align: center;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="sec" id="time"></div>
+
+<script>
+/*    setInterval(function () {
+        console.log("helloworld");
+    }, 1000);*/
+
+    var d = document.getElementById("time");
+    var num = 10;
+
+   //返回一个定时器对象
+    var timer = setInterval(fn, 1000);
+
+    function fn(){
+        num--;
+        if (num < 0){
+            //指定要取消的定时器对象
+            clearInterval(timer);
+            return;
+        } else {
+            d.innerHTML = num;
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>限时抢购</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 700px;
+      height: 100px;
+      background: #f08080;
+      margin: 100px auto;
+      text-align: center;
+      line-height: 100px;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1" class="box">距离抢购时间仅剩：<span id="s1"></span></div>
+  <script type="text/javascript">
+    var s1 = document.getElementById("s1");
+    window.onload = function(){
+      showTime();
+    };
+    function checkTime(i){  //补位处理
+        if(i<10){
+            i = "0"+i;
+        }
+        return i;
+    }
+    function showTime(){
+      var nowTime = new Date();
+      var endTime = new Date('2016-10-1 12:0:0');
+      var time = parseInt((endTime.getTime() - nowTime.getTime())/1000);
+      var day = parseInt(time/(24*60*60));
+      var h = parseInt(time/(60*60)%24);
+      var m = parseInt(time/60%60);
+      var s = parseInt(time%60);
+      h = checkTime(h);
+      m = checkTime(m);
+      s = checkTime(s);
+      if(time < 0){
+        clearTimeout(timer);
+      }else{
+        s1.innerHTML = day + '天' + h + '时' + m + '分' + s + '秒';
+        timer = setTimeout('showTime()',1000);
+      }
+    }
+  </script>
+</body>
+</html>

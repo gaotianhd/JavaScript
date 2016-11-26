@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间相关</title>
+</head>
+<body>
+
+<script>
+    //获得最新的时间
+    var d = new Date();
+    console.log(d);
+    console.log(d.getDate());//获得当月的日期
+    console.log(d.getDay());//获得星期
+    console.log(d.getMonth() + 1);//从0开始
+    console.log(d.getFullYear());// 2016
+    console.log(d.getMinutes());
+    console.log(d.getHours());
+    console.log(d.getMilliseconds());//1000ms之后就从0开始
+    console.log(d.getTime());//1970-1-1-0-0-0
+
+    console.log(d.toLocaleString());//转换成本地
+
+
+    // 符串
+    console.log(d.toDateString());//
+    console.log(d.toTimeString());//
+
+     //对应get方法，有set方法
+/*    d = new Date("2017-08-08 0:0:0");//设置时间
+    console.log(d);
+    d.setFullYear(2018);
+    console.log(d);*/
+
+
+</script>
+</body>
+</html>

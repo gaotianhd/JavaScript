@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var str = "abcded,mnsc,apple";
+    console.log(str.charAt(6));//不要越界
+    console.log(str.charAt(2));//不要越界
+
+    console.log(str.charCodeAt(0));
+    str[0] = "A";//字符串是不可变的，无法修改
+    console.log(str);
+
+    console.log(str.indexOf('a'));
+    console.log(str.indexOf('abc'));
+    console.log(str.indexOf('mnsc'));
+    console.log(str.indexOf('hello'));// -1, 无法找到
+
+    //等价于 "+"号
+    var newstr = str.concat("hello", "world", "apple");
+    console.log(newstr);
+
+   console.log("-----substr------");
+    //substr(start, length)
+    console.log(str.substr(0, 2));//
+    console.log(str.substr(2));//默认一直到字符串结束
+    console.log(str.substr(-4,3));//
+    console.log(str.substr(-20,3));//超过范围，从头开始
+
+
+
+    console.log("-----substring------");
+    console.log(str.substring(2));
+    console.log(str.substring(2, 8));//不包含结束位置上的字符
+
+    //注意 end < start时， 会自动调换参数
+    console.log(str.substring(6, 0));//不包含结束位置上的字符
+
+    console.log(str.substring(-20, 8));//不包含结束位置上的字符
+
+
+    console.log(str.toUpperCase());
+    console.log("HELLO".toLowerCase());
+
+
+    console.log("-----split------");
+    var a = str.split(",");//返回一个数组
+    console.log(a);
+
+     a = str.split(",", 1);//可以限定获得个数
+    console.log(a);
+
+
+    console.log("-----slice------");
+    console.log(str.slice(0,10));
+//    console.log(str.slice(10,0)); //slice不支持参数调换，除此之外和substring一样
+
+
+
+</script>
+
+</body>
+</html>
