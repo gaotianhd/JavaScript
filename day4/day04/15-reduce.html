@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var a = [1,2,3,4,5];
+    var result = a.reduce(function (pre, cur, i, a) {
+//        console.log("pre = " + pre, "cur = " + cur);
+
+        return pre + cur;//必须要有返回值
+    }, 0);
+    console.log("result = ", result);
+
+
+    var result = a.reduce(function (pre, cur, i, a) {
+        return pre * cur;//必须要有返回值
+    }, 1);
+    console.log("result = ", result);
+
+
+
+</script>
+</body>
+</html>

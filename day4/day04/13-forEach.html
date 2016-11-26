@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var a = [1,2,3,4,5];
+    var sum = 0;
+
+    for (var i = 0; i < a.length; i++){
+        sum += a[i];
+    }
+
+    sum = 0;
+    a.forEach(function (e, i, a) {
+/*        console.log("----------");
+        console.log("e: ", e);
+        console.log("i: ", i);
+        console.log("a: ", a);*/
+        sum += e;
+    });
+    console.log("sum = ", sum);
+
+</script>
+
+</body>
+</html>

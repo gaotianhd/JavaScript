@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red-div {
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="alert('点击了按钮！');"> 点击</button>
+<div class="red-div" id="div-id"></div>
+
+<script>
+    var d = document.getElementById("div-id");
+
+/*    d.onclick = function () {
+       alert("点击了div  触发第一个方法.....");
+    };
+
+    //DOM0级的事件添加方式，没有办法对同一个事件添加多个处理函数，后边的会覆盖前边的
+    d.onclick = function () {
+        alert("点击了div  触发第二个方法.....");
+    };*/
+
+
+    //DOM2级的事件添加方式, 事件名称不在包含“on”字符, 支持添加多个处理程序
+    function handlerOne(){
+        alert("点击div 触发第一个方法");
+    }
+
+    function handlerTwo(){
+        alert("点击div 触发第二个方法");
+    }
+
+/*    d.addEventListener("click", handlerOne, false);
+    d.addEventListener("click", handlerTwo, false);
+
+    //使用removeEventListener方法来删除事件处理函数时，必须知道处理函数的名称
+    d.removeEventListener("click", handlerOne , false);
+    d.removeEventListener("click", handlerTwo, false);*/
+
+
+/*    d.attachEvent("onclick", handlerOne);
+    d.attachEvent("onclick", handlerTwo);
+
+    d.detachEvent("onclick", handlerOne);
+    d.detachEvent("onclick", handlerTwo);*/
+
+
+    //简单的兼容ie8以下的浏览器代码
+    if (d.addEventListener) {
+       d.addEventListener("click", handlerOne, false);
+    } else if (d.attachEvent) {
+        d.attachEvent("onclick", handlerOne);
+    }
+
+
+</script>
+
+
+</body>
+</html>

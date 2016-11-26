@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var a = [];
+    a.push("hello");
+    console.log(a);
+
+    a.push("world", "google", "android");//可以一次写入多个元素
+    console.log(a);
+
+    var b = ["a", "b", "c"];
+    a.push(b);
+    console.log(a);
+
+
+    var m = [1,2,3,4];
+    delete m[0];//不会影响数组长度，占据空位置
+    console.log(m);
+    console.log(m.length);
+
+    console.log("-----pop-----");
+    var n = [1,2,3,4];
+    console.log(n.pop());//pop()方法会返回删除的数组元素
+    console.log(n);//影响数组的长度，将空位置移除
+
+    console.log("-----shift-----");
+    n = [1,2,3,4];
+    console.log(n.shift());//shift()方法会返回删除的数组元素
+    console.log(n);//影响数组的长度，将空位置移除, 并且后边的元素会跟着移动，影响了索引值
+
+
+    console.log("-----unshift-----");
+    n = [1,2,3,4];
+    n.unshift(0);//在开始位置添加
+    console.log(n);
+
+</script>
+</body>
+</html>

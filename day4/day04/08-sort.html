@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组排序sort</title>
+</head>
+<body>
+
+<script>
+    var a = [3,23,10];
+    console.log(a.sort());//默认都按照字符编码去排序，无论是数值还是字符串
+    console.log(a);//原数组直接被更改
+
+    console.log("----传入排序方法------");
+    a = [3,23,10];
+    a.sort(function(a,b){
+//        return a - b;//按照从小到大的顺序排列
+        return b - a;//从大到小
+    });
+    console.log(a);//原数组直接被更改
+
+    var b = ["hello", "world", "google"];
+    console.log(b.sort().reverse());
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的读写</title>
+</head>
+<body>
+
+<script>
+    var a = ["hello"];
+    console.log(a);
+
+    a[0] = "HELLO";
+    console.log(a);
+
+    a[1] = "world";
+    console.log(a);
+
+    a[4] = "google";
+    console.log(a);
+
+    console.log(a.length);
+    var b = [1,2,,,,,,,,,3];//稀疏数组
+    console.log(b.length);//11, 是数组对象实际占据的空间大小，并一定不是有效元素的个数
+</script>
+</body>
+</html>

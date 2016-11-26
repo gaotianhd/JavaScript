@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成绩判断</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .panduan {
+            display: inline-block;
+            width: 150px;
+            height: 20px;
+            border: 1px solid gray;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+
+        .right {
+            background: url("./form/right.png") no-repeat 5px center;
+        }
+
+        .wrong {
+            background: url("./form/wrong.png") no-repeat 5px center;
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <label>语文： <input type="text" id="score-id"></label>
+    <span class="panduan" id="span-id">请输入语文成绩</span>
+</div>
+
+<script>
+    var score = document.getElementById("score-id");
+    var span = document.getElementById("span-id");
+
+
+    //input元素失去焦点的事件
+    score.onblur = function () {
+//        alert(this.value);
+        if (this.value == ""){
+            span.className = "panduan wrong";
+            span.innerHTML = "内容不能为空！";
+        } else if (this.value < 0  || this.value > 100) {
+            span.className = "panduan wrong";
+            span.innerHTML = "成绩无效！";
+        } else if (isNaN(this.value)) {
+            span.className = "panduan wrong";
+            span.innerHTML = "成绩无效！";
+        } else {
+            span.className = "panduan right";
+            span.innerHTML = "成绩有效！";
+        }
+
+        this.value = "";
+
+    };
+
+
+</script>
+
+</body>
+</html>

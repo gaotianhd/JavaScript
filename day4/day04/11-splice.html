@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>splice</title>
+</head>
+<body>
+
+<script>
+    var a = ["hello", "world", "google", "apple", "ms"];
+
+    a.splice(2, 0, "android", "ios");//直接从索引2开始操作，将原先的索引2的元素向后移动
+    console.log(a);
+
+    var remove = a.splice(2, 2);
+    console.log("删除元素", remove);
+    console.log("a: ", a);
+
+    
+    remove = a.splice(2, 3, "a", "b", "c", "d");
+    console.log("删除元素", remove);
+    console.log("a: ", a);
+</script>
+
+</body>
+</html>

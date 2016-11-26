@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var a = [1,2,3,4,5];
+    var b = a.slice(0,3);
+    console.log(b);
+
+    b = a.slice();
+    console.log( b);//复制整个数组
+
+    b = a.slice(2);
+    console.log( b);//指定起始位置
+
+    b = a.slice(-2);
+    console.log( b);//指定起始位置
+
+
+    //slice是浅复制
+    var str = {"name": "lisi", "color": "red"};
+    var c = [str, 1,2,3];
+    console.log(c);
+
+    var d = c.slice(0,2);
+    console.log(d);
+    d[0].color = "green";
+    console.log(str);
+
+</script>
+
+</body>
+</html>
