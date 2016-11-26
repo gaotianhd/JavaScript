@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jd tab切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            width: 1200px;
+            height: 500px;
+            margin: 100px auto;
+        }
+
+        .box-head {
+            height: 36px;
+            border-bottom: 1px solid red;
+        }
+
+        .box-head h2 {
+            height: 36px;
+            line-height: 36px;
+            float: left;
+        }
+
+        .box-head ul {
+            height: 35px;
+            float: right;
+            border: 1px solid gray;
+            border-bottom: none;
+        }
+
+        .box-head ul li {
+            height: 35px;
+            line-height: 35px;
+            float: left;
+            padding: 0 15px;
+            cursor: pointer;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+            margin-top: -2px;
+            margin-left: -1px;
+            position: relative;
+
+        }
+
+        .box-head ul li.current {
+            border-color: red;
+            border-bottom-color: #fff;
+        }
+
+        .box-head ul li i {
+            display: inline-block;
+            width: 1px;
+            height: 16px;
+            background: gray;
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+
+        .box-head ul li i.current {
+            display: none;
+        }
+
+        .box-head ul li:last-child i {
+            background: transparent;
+        }
+
+        .box-content {
+            height: 460px;
+            border: 1px solid red;
+            border-top: none;
+        }
+
+        .box-content ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box-content ul li {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .box-content ul li.current {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+   <div class="box-head" id="head-id">
+       <h2>服装鞋帽</h2>
+       <ul>
+           <li class="current">服装<i></i></li>
+           <li>服装<i></i></li>
+           <li>服装<i></i></li>
+           <li>服装<i></i></li>
+           <li>服装<i></i></li>
+           <li>服装<i></i></li>
+           <li>服思考装<i></i></li>
+           <li>服装是<i></i></li>
+           <li>服装<i></i></li>
+       </ul>
+   </div>
+    <div class="box-content" id="con-id">
+        <ul>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    var head = document.getElementById("head-id");
+    var con = document.getElementById("con-id");
+
+    var headLis = head.getElementsByTagName("li");
+    var is = head.getElementsByTagName("i");
+    var conLis = con.getElementsByTagName("li");
+
+    for (var i = 0; i < headLis.length; i++) {
+        headLis[i].index = i;
+
+        headLis[i].onmouseover = function () {
+           for (var j = 0; j < headLis.length; j++) {
+               headLis[j].className = "";
+               conLis[j].className = "";
+               is[j].className = "";
+           }
+
+            this.className = "current";
+            conLis[this.index].className = "current";
+            is[this.index].className = "current";
+
+            if (this.index >= 1) {
+                is[this.index - 1].className = "current";
+            }
+
+        };
+    }
+
+</script>
+</body>
+</html>

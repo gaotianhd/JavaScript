@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>星座</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 350px;
+      height: 250px;
+      border: 1px solid #808080;
+      margin: 100px auto;
+    }
+    h3{
+      color: lightgreen;
+    }
+    .logo{
+      width: 50px;
+      height: 50px;
+      margin-left: 5px;
+      margin-right: 5px;
+      float: left;
+      background-image: url("./xingzuo/1.png");
+    }
+    select {
+      background: white;
+      display: block;
+    }
+    .xing{
+      width: 160px;
+      height: 20px;
+      line-height: 20px;
+      float: left;
+    }
+    .xing1{
+      width: 80px;
+      height: 20px;
+      float: right;
+      background: url("./xingzuo/yunshi.png")  0 3px no-repeat;
+    }
+    .xing2{
+      width: 48px;
+      height: 20px;
+      background: url("./xingzuo/yunshi.png") 0 -24px no-repeat;
+    }
+    ul{
+      list-style: none;
+      margin-top: 30px;
+    }
+    ul li{
+      width: 350px;
+      height: 172px;
+      display: none;
+    }
+    ul li.current{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    <h3>星座运势</h3>
+    <div class="logo" id="logo"></div>
+    <select name="" id="s">
+      <option value="1">白羊座 3.21-4.19</option>
+      <option value="2">金牛座 4.20-5.20</option>
+      <option value="3">双子座 5.21-6.21</option>
+      <option value="4">巨蟹座 6.22-7.22</option>
+      <option value="5">狮子座 7.23-8.22</option>
+      <option value="6">处女座 8.23-9.22</option>
+      <option value="7">天秤座 9.23-10.23</option>
+      <option value="8">天蝎座 10.24-11.22</option>
+      <option value="9">射手座 11.23-12.21</option>
+      <option value="10">摩羯座 12.22-1.19</option>
+      <option value="11">水瓶座 1.20-2.18</option>
+      <option value="12">双鱼座 2.19-3.20</option>
+    </select>
+    <div class="xing">
+      <span>今日运势：</span>
+      <div class="xing1">
+        <div class="xing2" id="xingzuo"></div>
+      </div>
+    </div>
+    <ul>
+      <li class="current">&nbsp;&nbsp;&nbsp;&nbsp;白羊座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;金牛座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;双子座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;巨蟹座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;狮子座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;处女座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;天秤座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;天蝎座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;射手座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;摩羯座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;水瓶座</li>
+      <li>&nbsp;&nbsp;&nbsp;&nbsp;双鱼座</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var box = document.getElementById("box");
+    var s = document.getElementById("s");
+    var xingzuo = document.getElementById("xingzuo");
+    var logo = document.getElementById("logo");
+    var xingzuoList = box.getElementsByTagName("li");
+    // for(var i = 0 ; i < xingzuoList.length ; i ++){
+      s.onchange = function(){
+          for(var j = 0 ; j < xingzuoList.length ; j ++){
+            xingzuoList[j].className = "";
+          }
+          switch (s.value) {
+            case "1":
+              xingzuo.style.width = "48px";
+              logo.style.backgroundPosition =" 0 0px" ;
+              xingzuoList[0].className = "current";
+              break;
+            case "2":
+              xingzuo.style.width = "64px";
+              logo.style.backgroundPosition =" 0 -50px" ;
+              xingzuoList[1].className = "current";
+              break;
+            case "3":
+              xingzuo.style.width = "80px";
+              logo.style.backgroundPosition =" 0 -100px" ;
+              xingzuoList[2].className = "current";
+              break;
+            case "4":
+              xingzuo.style.width = "0px";
+              logo.style.backgroundPosition =" 0 -150px" ;
+              xingzuoList[3].className = "current";
+              break;
+            case "5":
+              xingzuo.style.width = "16px";
+              logo.style.backgroundPosition =" 0 -200px" ;
+              xingzuoList[4].className = "current";
+              break;
+            case "6":
+              xingzuo.style.width = "32px";
+              logo.style.backgroundPosition =" 0 -250px" ;
+              xingzuoList[5].className = "current";
+              break;
+            case "7":
+              xingzuo.style.width = "48px";
+              logo.style.backgroundPosition =" 0 -300px" ;
+              xingzuoList[6].className = "current";
+              break;
+            case "8":
+              xingzuo.style.width = "24px";
+              logo.style.backgroundPosition =" 0 -350px" ;
+              xingzuoList[7].className = "current";
+              break;
+            case "9":
+              xingzuo.style.width = "40px";
+              logo.style.backgroundPosition =" 0 -400px" ;
+              xingzuoList[8].className = "current";
+              break;
+            case "10":
+              xingzuo.style.width = "56px";
+              logo.style.backgroundPosition =" 0 -450px" ;
+              xingzuoList[9].className = "current";
+              break;
+            case "11":
+              xingzuo.style.width = "36px";
+              logo.style.backgroundPosition =" 0 -500px" ;
+              xingzuoList[10].className = "current";
+              break;
+            case "12":
+              xingzuo.style.width = "70px";
+              logo.style.backgroundPosition =" 0 -550px" ;
+              xingzuoList[11].className = "current";
+              break;
+            default:
+          }
+        // }
+      }
+  </script>
+</body>
+</html>

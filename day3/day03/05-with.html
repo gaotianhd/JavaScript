@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>with语句</title>
+</head>
+<body>
+
+<script>
+    with (location){
+        console.log(hostname);
+    }
+
+    console.log(location.hostname);
+//    console.log(hostname); //错误
+
+</script>
+</body>
+</html>

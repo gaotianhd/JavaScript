@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch切换背景</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100%;
+            background: url("./images/chun1.jpg") no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<select name="s" id="s-id">
+    <option value="1">春天</option>
+    <option value="2" selected>夏天</option>
+    <option value="3">秋天</option>
+    <option value="4">冬天</option>
+</select>
+
+<script>
+    var s = document.getElementById("s-id");
+
+    //当选中的菜单选项发生变化时，就会触发该事件
+    s.onchange = function () {
+        switch (s.value) {
+            //注意变量类型
+            case "1":
+                document.body.style.backgroundImage = "url(./images/chun1.jpg)";
+                break;
+            case "2":
+                document.body.style.backgroundImage = "url(./images/xia1.jpg)";
+                break;
+            case "3":
+                document.body.style.backgroundImage = "url(./images/qiu1.jpg)";
+                break;
+            case "4":
+                document.body.style.backgroundImage = "url(./images/dong1.jpg)";
+                break;
+        }
+    };
+
+</script>
+
+</body>
+</html>

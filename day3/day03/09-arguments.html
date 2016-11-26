@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数中的 arguments对象</title>
+</head>
+<body>
+
+<script>
+    function fn(arg1, arg2) {
+        console.log(fn.length);//函数要求的形式参数的个数
+
+        //arguments只能在函数内部使用
+        console.log(arguments.length);//传递函数的实际参数的个数
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+    }
+
+//    fn();//可以不传递参数
+//    fn(1,2,3);
+
+
+    function fn1() {
+        console.log(fn1.length);
+        console.log(arguments.length);//传递函数的实际参数的个数
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+    }
+
+    fn1(1,2,3);
+
+
+</script>
+
+</body>
+</html>

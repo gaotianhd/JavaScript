@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>淘宝</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+    }
+    ul:first-child{
+      float: left;
+    }
+    ul:last-child{
+      float: right;
+    }
+    .box {
+      width: 300px;
+      height: 250px;
+      border: 1px solid #ff69b4;
+      margin: 100px auto;
+    }
+    ul li {
+      width: 49px;
+      height: 27px;
+      line-height: 27px;
+      text-align: center;
+      border-top: 1px solid #ff69b4;
+      font-size: 13px;
+    }
+    ul li:first-child{
+      border-top: none;
+    }
+    .nav{
+      width: 200px;
+      height: 250px;
+      float: left;
+      border-left: 1px solid #ff69b4;
+      border-right: 1px solid #ff69b4;
+      background: url("./taobao/2.jpg");
+    }
+    .current{
+
+    }
+  </style>
+</head>
+<body>
+  <div class="box" id="box">
+    <ul>
+      <li>女靴</li>
+      <li>雪地靴</li>
+      <li>冬裙</li>
+      <li>呢大衣</li>
+      <li>毛衣</li>
+      <li>棉服</li>
+      <li>女裤</li>
+      <li>羽绒服</li>
+      <li>牛仔裤</li>
+    </ul>
+    <div class="nav" id="nav"></div>
+    <ul>
+      <li>女包</li>
+      <li>男包</li>
+      <li>登山鞋</li>
+      <li>皮带</li>
+      <li>围巾</li>
+      <li>皮衣</li>
+      <li>男毛衣</li>
+      <li>男棉服</li>
+      <li>男靴</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    var pList = [
+      "url(./taobao/1.jpg)",
+      "url(./taobao/2.jpg)",
+      "url(./taobao/3.jpg)",
+      "url(./taobao/4.jpg)",
+      "url(./taobao/5.jpg)",
+      "url(./taobao/6.jpg)",
+      "url(./taobao/7.jpg)",
+      "url(./taobao/8.jpg)",
+      "url(./taobao/9.jpg)",
+      "url(./taobao/1.jpg)",
+      "url(./taobao/2.jpg)",
+      "url(./taobao/3.jpg)",
+      "url(./taobao/4.jpg)",
+      "url(./taobao/5.jpg)",
+      "url(./taobao/6.jpg)",
+      "url(./taobao/7.jpg)",
+      "url(./taobao/8.jpg)",
+      "url(./taobao/9.jpg)"
+    ];
+    var box = document.getElementById("box");
+    var nav = document.getElementById("nav");
+    var taobaoList = box.getElementsByTagName("li");
+    // console.log(taobaoList.length);
+    for(var i = 0 ; i < taobaoList.length ; i ++){
+      taobaoList[i].index = i;
+      taobaoList[i].onmouseover = function(){
+        for(var j = 0 ; j < taobaoList.length ; j ++){
+          taobaoList[j].style.background = "none";
+          nav.style.background = "none";
+        }
+        this.style.background = "red";
+        nav.style.background = pList[this.index];
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>label</title>
+</head>
+<body>
+
+<script>
+
+    //label 可以跳出多层循环
+
+ label:   for (var j = 0; j < 5; j++) {
+        console.log("------jjjjj------");
+
+        for (var i = 0; i < 10; i++) {
+            if (i == 5) {
+                break label;
+            }
+
+            console.log(i);
+        }
+
+    }
+
+    console.log("break for ....");
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+   var a = 5;
+    switch (a) {
+        case 1:
+        case 2:
+        case 3:
+            console.log("333333");
+            break;//执行完该代码之后跳出switch，后边的代码不在执行
+        default:
+            console.log(" default ...");
+            break;
+    }
+
+
+    switch ("b") {
+        case "a":
+            console.log("a");
+            break;
+        case 'b':
+            console.log("b");
+            break;
+        default:
+            console.log("unknown");
+            break;
+    }
+
+</script>
+
+</body>
+</html>

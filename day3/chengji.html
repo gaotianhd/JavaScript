@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>成绩判断</title>
+  <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 150px;
+      height: 20px;
+      line-height: 20px;
+      background: black;
+      color: white;
+      text-align: center;
+      border: 1px solid black;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <input id="t1" type="text" name="t1" value="">
+  <input id="btn1" type="button" name="name" value="点击">
+  <div id="box" class="box">
+    请输入成绩
+  </div>
+  <script type="text/javascript">
+    var textValue = document.getElementById("t1");
+    var btn1 = document.getElementById("btn1");
+    var box = document.getElementById("box");
+    btn1.onclick = function(){
+      console.log(Number(textValue.value));
+      if(isNaN(Number(textValue.value))){
+        box.style.backgroundImage = "url(./form/wrong.png)";
+        box.style.backgroundColor = "white";
+        box.style.color = "black";
+        box.style.width = "200px";
+        box.innerHTML = "请输入数字";
+      }else if(0 <= Number(textValue.value) && Number(textValue.value) <= 100){
+        box.style.backgroundImage = "url(./form/right.png)";
+        box.style.backgroundColor = "white";
+        box.style.color = "black";
+        box.style.width = "200px";
+        box.innerHTML = "输入正确";
+      }else{
+        box.style.backgroundImage = "url(./form/wrong.png)";
+        box.style.backgroundColor = "white";
+        box.style.color = "black";
+        box.style.width = "200px";
+        box.innerHTML = "输入的数字不正确";
+      }
+    };
+  </script>
+</body>
+</html>

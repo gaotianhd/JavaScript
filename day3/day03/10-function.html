@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数、变量声明提升</title>
+</head>
+<body>
+
+<script>
+
+    var value = 10;
+    fn();//函数的调用也可以出现在函数的声明之前
+
+    function fn(){
+        console.log("value = " + value);
+        var value = 20;
+
+        //变量赋值并没有被提升，仅仅只是声明被提升了
+        //以上代码等价于如下代码
+        /*
+        * var value;
+        * console.log("value = " + value);
+         * value = 20;
+        * */
+    }
+
+
+</script>
+
+</body>
+</html>
