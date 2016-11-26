@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖动条</title>
+    <script src="scroll.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 250px;
+            height: 30px;
+            /*border: 1px solid red;*/
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar {
+            width: 200px;
+            height: 10px;
+            background: blue;
+            position: absolute;
+            top: 10px;
+            border-radius: 10px;
+        }
+
+        .move {
+            width: 10px;
+            height: 26px;
+            background: red;
+            position: absolute;
+            top: -8px;
+            cursor: pointer;
+        }
+
+        .content {
+            float: right;
+            margin-top: 5px;
+
+        }
+    </style>
+</head>
+<body>
+
+ <div class="box" id="box-id">
+     <div class="bar" id="bar-id">
+         <div class="move"></div>
+     </div>
+     <div class="content" id="con-id"></div>
+ </div>
+
+ <script>
+     var box = document.getElementById("box-id");
+     var bar = document.getElementById("bar-id");
+     var move = bar.firstElementChild;
+     var con = document.getElementById("con-id");
+
+     var boxOffsetLeft = box.offsetLeft;
+//     console.log(boxOffsetLeft);
+     var barWidth = bar.offsetWidth;
+     var moveWidth = move.offsetWidth;
+
+
+     move.onmousedown = function (e) {
+
+         document.onmousemove = function (e) {
+             var pageX = e.pageX  || e.clientX + scroll().left;
+
+             //粗略的认为鼠标的位置就是move的位置
+             var offsetX = pageX - boxOffsetLeft;
+
+             if (offsetX <= 0){
+                 offsetX = 0;
+             }else if (offsetX >= barWidth - moveWidth){
+                 offsetX = barWidth - moveWidth;
+             }
+
+             move.style.left = offsetX + "px";
+/*             var percent = parseInt((move.offsetLeft / (barWidth - moveWidth)) * 100);
+             con.innerHTML = percent + "%";*/
+
+             var percent = parseFloat(move.offsetLeft / (barWidth - moveWidth));
+             con.innerHTML = (percent * 100).toFixed(2) + "%";
+
+         };
+
+         document.onmouseup = function (e) {
+             //当鼠标弹起时，鼠标的移动事件失效
+             document.onmousemove = null;
+         };
+
+
+
+     };
+
+
+
+
+
+ </script>
+
+
+</body>
+</html>

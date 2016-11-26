@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Super(name){
+        this.name = name;
+    }
+
+    //使用借用构造函数的方式进行继承
+    function Sub(name, age){
+        //call方法，表示在this对象上调用Super函数
+        Super.call(this, name);
+        this.age = age;
+    }
+
+
+    var one = new Sub("zhangsan", 10);
+    console.log(one);
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

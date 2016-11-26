@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function test(){
+      var num = 10;
+    }
+
+    function fn(){
+      var num = 0;
+      return {
+        getNum: function(){return num;},
+        setNum: function(value){num = value}
+      };
+    }
+
+    var ret = fn();
+    console.log(ret.getNum());
+    ret.setNum(10);
+    console.log(ret.getNum());
+
+  </script>
+</body>
+</html>

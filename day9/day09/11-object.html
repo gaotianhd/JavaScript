@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype = {
+        constructor: Person,
+        getName: function(){return this.name}
+    };
+
+//    Person.prototype.getName = function(){return this.name};
+
+
+    var one = new Person("zhangsan", 10);
+    console.log(one);
+    console.log(one.constructor);//对现象的constructor属性指向的是创建该对象的构造函数
+
+
+
+/*
+   直接对一个对象使用{}的方式进行属性和方法的添加时，会删除该对象之前的所有属性和方法
+   var a = {
+        name: "lisi",
+        age: 10
+    };
+
+//    a.sayHello = function(){console.log(".....")};
+
+    a = {
+        sayHello: function(){console.log(".....")}
+    };
+
+    console.log(a);*/
+
+
+
+
+</script>
+</body>
+</html>

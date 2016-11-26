@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>对象</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+    //使用内置的类型实例化对象
+    //Array Date
+
+    var a = new Array(10);
+    var d = new Date();
+    var o = new Object();
+    console.log(typeof o);
+
+    //使用字面量的方式创建对象
+    var s = {};
+    s.name = "lisi";
+    s.age = 10;
+    s.aayHello = function(){console.log("hello");};
+
+    console.log(s.name);
+    console.log(s.age);
+
+    s.aayHello();
+
+    console.log("-----");
+
+    var s2 = {
+      name: "lisi",
+      age:10,
+      sayHello: function(){console.log("hello");}
+    };
+
+    console.log(s2.name);
+    console.log(s2.age);
+    s2.sayHello();
+
+    console.log(s2["name"]);
+    console.log(s2["age"]);
+  </script>
+</body>
+</html>

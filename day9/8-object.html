@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    function Person(name,age){
+      this.name = name;
+      this.age = age;
+      this.getName = function(){
+        return this.name;
+      };
+      this.getAge = function(){
+        return this.age;
+      };
+    }
+
+    /*
+         //Person的本质就是一个函数，可以按照普通函数的形式调用
+         //直接按照函数调用，那么函数使得this, 就是全局，也就是window
+         Person("lisi", 10);
+         console.log("name", name);
+         console.log("age", age);
+         console.log(getName());*/
+
+        //通过Person实例化对象
+        var one = new Person("zhangsan",  10);
+        console.log(one);
+        console.log(one.getName());
+        console.log(one.getAge());
+
+  </script>
+</body>
+</html>

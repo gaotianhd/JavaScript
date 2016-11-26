@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    console.log("-------使用构造函数模式实例化对象-----------");
+
+    //该函数是用于实例化对象的，并不是普通函数
+    function Person(name, age){
+
+        //this表示的是通过Person实例化的对象
+        this.name = name;
+        this.age = age;
+        this.getName = function(){
+            return this.name;
+        };
+        this.getAge = function(){
+            return this.age;
+        };
+    }
+
+/*
+     //Person的本质就是一个函数，可以按照普通函数的形式调用
+     //直接按照函数调用，那么函数使得this, 就是全局，也就是window
+     Person("lisi", 10);
+     console.log("name", name);
+     console.log("age", age);
+     console.log(getName());*/
+
+    //通过Person实例化对象
+    var one = new Person("zhangsan",  10);
+    console.log(one);
+    console.log(one.getName());
+    console.log(one.getAge());
+
+
+
+
+
+</script>
+</body>
+</html>

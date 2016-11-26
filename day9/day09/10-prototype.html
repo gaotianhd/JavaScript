@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //函数都有一个属性prototype，该属性本身也是一个对象类型。
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+/*    Person.prototype.name = "lisi";
+    Person.prototype.age =  10;
+    */
+    //将对象公用方法添加到prototype中，从而避免每个对象都包含重复的方法
+    Person.prototype.getName = function(){
+        return this.name;
+    };
+
+
+    var one = new Person("lisi", 10);
+    var two = new Person("zhangsan", 20);
+    two.name = "zhangsan";
+
+    console.log("one.name", one.name);
+    console.log("one.age", one.age);
+    console.log("one.getName()", one.getName());
+
+    console.log("two.name", two.name);
+    console.log("two.age", two.age);
+    console.log("two.getName()", two.getName());
+
+
+
+
+</script>
+</body>
+</html>

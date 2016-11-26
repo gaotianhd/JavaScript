@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Super(name){
+        this.name = name;
+        this.colors = ["red", "green"];
+    }
+    Super.prototype.getName = function(){
+        return this.name;
+    };
+
+    var one = new Super();
+    console.log(one.constructor);
+
+    function Sub(name, age){
+        Super.call(this, name);
+        this.age = age;
+    }
+
+    Sub.prototype = new Super();//包含 name属性，getName方法
+    Sub.prototype.getAge = function(){
+        return this.age;
+    }
+    //
+    //
+    // var stu = new Sub("lisi", 10);
+    /*如果一个对象上包含两个重名的属性，一个是prototype中的属性，一个是构造器中添加的属性，那么在访问时
+     构造器当中的属性值为该对象的该属性的值。
+    */
+
+       console.log(stu);
+       console.log("stu.name", stu.name);
+       console.log("stu.age", stu.age);
+       console.log("stu.getAge", stu.getAge());
+       console.log("stu.getName", stu.getName());
+       console.log("stu.colors", stu.colors);
+
+       //每个对象继承来的colors属性都是唯一的，相互之间没有任何关联
+       stu.colors.push("pink");
+       console.log("stu.colors", stu.colors);
+
+       var stu2 = new Sub("wangwu", 20);
+       console.log("stu2.colors", stu2.colors);
+
+
+
+</script>
+
+</body>
+</html>

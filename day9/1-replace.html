@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>replace方法</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var str = "bacgroundColor backgroundImage";
+
+    var newstr = str.replace(/([A-Z])/g,function(match,p1){
+
+        // console.log(match);
+        // console.log(p1);
+
+        return "-" + p1.toLowerCase();
+    });
+
+    console.log(newstr);
+
+    var str1 = "background-color background-image";
+
+    newstr = str1.replace(/-([a-z])/g,function(match,p1){
+      return p1.toUpperCase();
+    });
+    console.log(newstr);
+  </script>
+</body>
+</html>

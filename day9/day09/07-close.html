@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function test(){
+      var num = 10;    //引用计数 0
+    }
+
+    function fn(){
+        var num = 0;
+        return {
+            getNum: function(){return num;},
+            setNum: function(value){num = value}
+        };
+
+    }
+
+
+    //fn函数调用虽然结束，但是num变量仍然需要被其他函数引用，所以num变量没有被回收，而是常驻于内存.
+    var ret = fn();
+    console.log(ret.getNum());
+    ret.setNum(10);
+    console.log(ret.getNum());
+
+
+
+
+
+</script>
+
+</body>
+</html>

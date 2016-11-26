@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style media="screen">
+      *{box-shadow: }
+    </style>
+</head>
+<body>
+
+<script>
+
+    //写json数据时，键名尽量都使用“”包含
+    var data = {
+        "name": "lisi",
+        "age": 20,
+        "id": "01436749",
+        "address": {
+            "street": "beijisjgijgj",
+            "idid": "0227y8285",
+            "country": "china",
+            "sheng": "beijing"
+        },
+        "hobby": ["1", "2", "3"]
+    };
+
+    console.log(data.name);
+    console.log(data.age);
+    console.log(data.id);
+    console.log(data.address.sheng);
+    console.log(data.hobby);
+
+
+    //对JSON数据进行序列化，其实就是变成字符串
+    var str = JSON.stringify(data);
+    console.log(str);
+
+    //如何将字符串转成Json数据
+     data = JSON.parse(str);
+    console.log(data);
+
+
+
+</script>
+
+</body>
+</html>

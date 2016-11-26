@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var name = "jhon smith";
+    var re = /(\w+)\s(\w+)/;
+
+    var newname = name.replace(re, "$2,$1");
+    console.log(newname);
+
+
+    var str = "backgroundColor abdkjgksdj";
+    var newstr = str.replace(/[A-Z]/g, "$`");
+    newstr = str.replace(/[A-Z]/g, "$'");
+    console.log(newstr);
+
+</script>
+
+</body>
+</html>

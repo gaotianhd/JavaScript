@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var a = 10;
+    function fn(){
+      var b = 20;
+      return function result(){
+
+        console.log(b);
+        return b;
+      };
+    }
+    console.log("11111");
+    var result = fn();
+    console.log("22222");
+    // console.log(result);
+    // var a = result()
+    console.log("33333");
+    // console.log(a);
+  </script>
+</body>
+</html>

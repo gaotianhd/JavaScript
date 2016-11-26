@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    function fn(){
+        var b = 20;
+        return function(){
+            console.log(b);
+        };
+    }
+
+    var result = fn();
+    console.log(typeof result);//function 类型
+    result();//仍然访问fn函数作用域中的变量
+
+
+    function fun(){
+        var a = 0;
+        return function(){
+            for (var i = 0; i < 5; i++){
+                a++;
+            }
+            console.log(a);
+        };
+    }
+
+
+    //result, result1都是返回的函数，但是每个函数都是独立的和，内部的操作没有任何关联
+    result = fun();
+    var result1 = fun();
+
+    result();// a = 5;
+    result();// a = 10;
+    result1();// a = 5;
+
+
+
+</script>
+
+</body>
+</html>

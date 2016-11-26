@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+        }
+
+        div:first-child {
+            background: red;
+        }
+
+        div:nth-child(2) {
+            background: green;
+        }
+
+        div:nth-child(3) {
+            background: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    var divs = document.getElementsByTagName("div");
+
+    for (var i = 0; i < divs.length; i++){
+        divs[i].index  = i;
+
+        divs[i].onclick = function () {
+            alert(i);// 函数中仅仅包含对该变量的引用，而不是执行循环的值。
+        };
+    }
+
+
+
+</script>
+
+</body>
+</html>

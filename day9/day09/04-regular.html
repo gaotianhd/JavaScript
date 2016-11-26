@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var str = "abcd hello world";
+     //^ 表示要匹配的字符串的开始条件
+    console.log(/^hello/.test(str));//false
+
+    // $表示要匹配的字符串的结尾
+    console.log(/world$/.test(str));//
+
+    console.log(/^hello world$/.test("hello world"));
+
+
+    console.log(/\d/.test("abcd")); // \d 匹配一个数字
+    console.log(/\d\d\d/.test("abcd1234")); //
+    console.log(/\D/.test("1223344"));//false
+    console.log(/\D/.test("122abc3344"));//true
+
+
+    console.log(/\w/.test("sdgjkg12344"));//true
+    console.log(/\w/.test("#######@@@@@@"));//false
+    console.log(/\W/.test("#######@@@@@@"));//true
+
+
+    console.log(/\s\s/.test("hello world"));
+    console.log(/\s/.test("hello\tworld"));
+    console.log(/\S/.test("        "));//false
+    console.log(/\S/.test("abc123"));//true
+    console.log(/@@##/.test("hello@@##adf"));
+
+    //特殊符号比如 *  .  ?   +
+
+    // *前边的表达式出现任意次
+    console.log(/abc*/.test("abc"));
+    console.log(/abc*/.test("abccccccc"));
+    console.log(/abc*/.test("ab"));
+
+    console.log(/ab(cd)*/.test("ab"));
+    console.log(/ab(cd)*/.test("abcdcdcdcd"));
+
+
+    // . 表示除了 \r \n之外的所有字符
+    console.log(/.*/.test("abcde123434"));//true
+    console.log(/./.test("\n"));//false
+    console.log(/./.test("\r"));//false
+
+    console.log(/.*/.test("\r\n"));//true
+
+    // \* 是为了匹配 *字符
+    console.log(/abc\*\*/.test("abc**abc"));
+
+    // \. 是为了匹配 .字符
+    console.log(/12\.234/.test("12.234"));
+
+    // + 表示前边表达式出现至少一次
+    console.log(/abc+/.test("ab"));
+    console.log(/abc+/.test("abc"));
+    console.log(/abc+/.test("abccccccc"));
+
+    // ?表示进行最短匹配，避免贪婪匹配
+
+    var result = /abc*/.exec("abcccc   heloworijskgjskgjksjg");
+    result = /abc*?/.exec("abcccc   heloworijskgjskgjksjg");
+    result = /abc+/.exec("abcccc   heloworijskgjskgjksjg");
+    result = /abc+?/.exec("abcccc   heloworijskgjskgjksjg");
+
+    console.log(result[0]);
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

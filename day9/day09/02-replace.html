@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>replace方法</title>
+</head>
+<body>
+
+
+<script>
+    var str = "backgroundColor backgrondImage";
+
+    //希望将驼峰法的命名变为横线连接的命名 C --> -c ,  I ---> -i
+    var newstr = str.replace(/([A-Z])/g,  function(match, p1){
+/*        console.log(match);
+        console.log(p1);*/
+
+        return "-" + p1.toLowerCase();
+    });
+    console.log(newstr);
+
+    //希望将横线连接的命名变为驼峰法命名 ，  -c-->C ,   -i--->I
+    var str1 = "background-color  background-image";
+    newstr = str1.replace(/-([a-z])/g, function(match, p1){
+        return p1.toUpperCase();
+    });
+    console.log(newstr);
+
+
+</script>
+
+</body>
+</html>

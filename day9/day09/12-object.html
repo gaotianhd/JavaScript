@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //父类定义完毕，包含一个属性，一个方法
+    function Super(){
+        this.superName = "super";
+    }
+
+    Super.prototype.getSuperName = function(){
+        return this.superName;
+    };
+
+
+    function  Sub(){
+        this.subName = "sub";
+    }
+
+    //使用原型进行继承, 单继承
+    Sub.prototype =  new Super();
+    //console.log(Sub.prototype);
+    Sub.prototype.getSubName = function(){
+        return  this.subName;
+    };
+
+
+    var one = new Sub();
+    console.log("one.superName", one.superName);
+
+    //当修改了原型时，后续创建的对象都会受影响
+    Sub.prototype.superName = "new super";
+    var two = new Sub();
+    console.log("two.superName", two.superName);
+
+
+
+
+
+/*    console.log(one);
+    console.log("one.subName", one.subName);
+    console.log("one.superName", one.superName);
+    console.log("one.getSuperName", one.getSuperName());
+    console.log("one.getSubName", one.getSubName());*/
+
+
+
+</script>
+
+</body>
+</html>

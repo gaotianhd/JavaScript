@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //使用内置的类型实例化对象
+    // Array Date
+    var a = new Array(10);
+    var d = new Date();
+
+    var o = new Object();
+    console.log(typeof o);//object
+
+
+    //使用字面量的方式创建对象
+    var s = {}; // 空对象等价于 new Object();
+    s.name = "lisi";
+    s.age = 10;
+    s.sayHello = function(){ console.log("hello");};
+
+    console.log(s.name);
+    console.log(s.age);
+    s.sayHello();
+
+    console.log("-------{}------");
+
+    var s2 = {
+        name: "lisi",
+        age: 10,
+        sayHello: function(){console.log("hello");}
+    };
+    console.log(s2.name);
+    console.log(s2.age);
+    s2.sayHello();
+
+    console.log(s2["name"]);// 使用[]方式访问属性时，属性名必须加引号
+    console.log(s2["age"]);
+
+
+
+
+</script>
+
+</body>
+</html>
